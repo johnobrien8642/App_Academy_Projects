@@ -1,5 +1,5 @@
 class Artwork < ApplicationRecord
-    validates :artist_id, :title, :image_url, presence: true
+    validates :title, :image_url, presence: true
     validates :image_url, uniqueness: true
     validates :title, uniqueness: { scope: :artist_id, 
         message: 'artist can only use title once' }
@@ -9,8 +9,13 @@ class Artwork < ApplicationRecord
       class_name: :User,
       foreign_key: :artist_id,
       primary_key: :id
-    has_many :artwork_shares
+    has_many :artwork_shares, dependent: :destroy
     has_many :shared_viewers, through: :artwork_shares, source: :viewer
+    has_many :comments, 
+      class_name: :Comment, 
+      foreign_key: :artwork_id,
+      dependent: :destroy
+    has_many :likes, as: :likeable
 
     def self.artworks_for_user_id(user_id)
       user_artwork = Artwork

@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   resources :artwork_shares, only: [:create, :destroy] do
   end
+
+  resources :comments, only: [:create, :destroy, :index] do 
+  end
 end

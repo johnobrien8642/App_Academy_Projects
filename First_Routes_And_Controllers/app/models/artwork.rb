@@ -16,6 +16,7 @@ class Artwork < ApplicationRecord
       foreign_key: :artwork_id,
       dependent: :destroy
     has_many :likes, as: :likeable
+    has_many :artwork_collections
 
     def self.artworks_for_user_id(user_id)
       user_artwork = Artwork

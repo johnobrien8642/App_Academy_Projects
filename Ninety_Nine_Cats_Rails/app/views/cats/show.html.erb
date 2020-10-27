@@ -1,7 +1,6 @@
 <h1><%= @cat.name %>'s Information</h1>
 
-<table style="align:left">
-  <colgroup span="7"></colgroup>
+<table>
   <tr>
     <th>Age</th>
     <th>Date of Birth</th>
@@ -18,4 +17,22 @@
     <td><%= @cat.sex %></td>
     <td><%= @cat.description %></td>  
   </tr>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scheduled Rentals</th>
+    </tr>
+    <tr>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </thead>
+  <% @cat.rental_requests.order(:start_date).each do |request| %>
+  <tr>
+    <td><%= request.start_date %></td>
+    <td><%= request.end_date %></td>
+  </tr>
+  <% end %>
 </table>

@@ -13,6 +13,27 @@ class CatRentalRequest < ApplicationRecord
       self.status == "Denied"
     end
 
+    def pending? 
+      self.status == "Pending"
+    end
+
+    def deny!
+      self.status = "Denied"
+      self.save!
+    end
+
+    def approve!
+      raise 'not pending' unless self.status == "Pending"
+      transaction do
+        self.status = "Approved"
+        self.save!
+
+        overlapping_pending_requests.each do |request| 
+          request.update!(status: "Denied") 
+        end
+      end
+    end
+
     private
 
     def does_not_overlap_approved_requests

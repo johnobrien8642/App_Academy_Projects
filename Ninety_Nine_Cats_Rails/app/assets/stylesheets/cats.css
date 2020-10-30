@@ -1,0 +1,19 @@
+html, h1, h2, form, label, 
+ input, select, option, textarea, br,
+ table, tr, th, td, thead 
+ {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    text-align: inherit;
+    text-decoration: inherit;
+    font: inherit;
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+ }
+
+h1 {
+    font-size: 60px; 
+}

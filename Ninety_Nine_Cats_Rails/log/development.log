@@ -3124,3 +3124,266 @@ Processing by CatsController#index as HTML
 Completed 200 OK in 98ms (Views: 95.0ms | ActiveRecord: 1.9ms)
 
 
+Started GET "/cats" for ::1 at 2020-10-29 21:13:20 -0400
+  [1m[35m (39.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (81.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:12
+  Rendered cats/index.html.erb within layouts/application (982.9ms)
+Completed 200 OK in 3465ms (Views: 2048.0ms | ActiveRecord: 812.5ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:44:16 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (2024.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:12
+  Rendered cats/index.html.erb within layouts/application (3204.2ms)
+Completed 200 OK in 11564ms (Views: 8524.0ms | ActiveRecord: 2024.1ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:46:05 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:12
+  Rendered cats/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 350ms (Views: 343.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:48:04 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 202ms (Views: 195.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:49:20 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 138ms (Views: 136.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:50:41 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 226ms (Views: 224.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:52:40 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 165ms (Views: 154.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:53:05 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 152ms (Views: 149.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:53:29 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 146ms (Views: 132.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:53:58 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 141ms (Views: 139.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:54:13 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 214ms (Views: 206.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 19:54:54 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 182ms (Views: 180.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:11:57 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 175ms (Views: 169.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:12:33 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 130ms (Views: 128.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:15:30 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 146ms (Views: 138.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:16:49 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 192ms (Views: 181.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:17:14 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 82ms (Views: 79.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:18:36 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 137ms (Views: 128.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:20:52 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 201ms (Views: 192.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:26:56 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 162ms (Views: 155.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:28:23 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.3ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 275ms (Views: 268.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:33:07 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (57.2ms)
+Completed 200 OK in 1436ms (Views: 1427.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:34:25 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (18.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (35.3ms)
+Completed 200 OK in 305ms (Views: 279.9ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:35:36 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:13
+  Rendered cats/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 336ms (Views: 329.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:37:27 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:15
+  Rendered cats/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 397ms (Views: 383.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:41:51 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:15
+  Rendered cats/index.html.erb within layouts/application (76.7ms)
+Completed 200 OK in 338ms (Views: 329.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:43:21 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:15
+  Rendered cats/index.html.erb within layouts/application (140.2ms)
+Completed 200 OK in 347ms (Views: 345.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:43:55 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (1.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:15
+  Rendered cats/index.html.erb within layouts/application (135.9ms)
+Completed 200 OK in 476ms (Views: 466.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/cats" for ::1 at 2020-10-30 20:44:14 -0400
+Processing by CatsController#index as HTML
+  Rendering cats/index.html.erb within layouts/application
+  [1m[36mCat Load (0.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/views/cats/index.html.erb:15
+  Rendered cats/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 163ms (Views: 162.0ms | ActiveRecord: 0.7ms)
+
+

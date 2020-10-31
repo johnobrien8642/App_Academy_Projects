@@ -1,5 +1,16 @@
-<h1>99 Cats</h1>
-<nav></nav>
+
+<nav class = "main-nav">
+  <h1>
+    <a href="#">99 Cats</a>
+  </h1>
+    <div>
+      <a href="#">Sign in</a>
+      <a href="#">Sign up</a>
+    </div>
+</nav>
+
+
+
 <ul>
 <% @cats.each do |cat| %>
     <li><a href="<%= cat_url(cat)%>" ><%= cat.name %></a></li>

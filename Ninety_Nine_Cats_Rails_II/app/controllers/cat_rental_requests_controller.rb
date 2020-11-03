@@ -1,4 +1,6 @@
 class CatRentalRequestsController < ApplicationController
+  before_action :require_user!, only: [:approve, :deny, :create, :new]
+
   def approve
     current_cat_rental_request.approve!
     redirect_to cat_url(current_cat)
@@ -15,8 +17,8 @@ class CatRentalRequestsController < ApplicationController
   end
 
   def deny
-    current_cat_rental_request.deny!
-    redirect_to cat_url(current_cat)
+      current_cat_rental_request.deny!
+      redirect_to cat_url(current_cat)
   end
 
   def new

@@ -38,21 +38,21 @@ c5 = Cat.create(birth_date: "Jan 1st 2018", color: "brown",
             )
 
 CatRentalRequest.create(cat_id: c1.id, start_date: "June 1st 2021", 
-                            end_date: "June 30th 2021", status: :Approved
+                            end_date: "June 30th 2021", status: :PENDING
                         )
 
 CatRentalRequest.create(cat_id: c2.id, start_date: "July 5th 2021", 
-                            end_date: "August 8th 2021", status: :Approved
+                            end_date: "August 8th 2021", status: :PENDING
                         )                        
 
 CatRentalRequest.create(cat_id: c1.id, start_date: "February 20th 2021", 
-                            end_date: "March 5th 2021", status: :Pending
+                            end_date: "March 5th 2021", status: :PENDING
                         )
 
 CatRentalRequest.create(cat_id: c4.id, start_date: "April 5th 2021", 
-                            end_date: "April 10th 2021", status: :Denied
+                            end_date: "April 10th 2021", status: :PENDING
                         )
 
 CatRentalRequest.create(cat_id: c5.id, start_date: "October 1st 2021", 
-                            end_date: "October 30th 2021", status: :Pending
+                            end_date: "October 30th 2021", status: :PENDING
                         )

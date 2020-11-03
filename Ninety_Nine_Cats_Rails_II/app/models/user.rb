@@ -31,6 +31,10 @@ class User < ApplicationRecord
        self.session_token
     end
 
+    def owns_cat?(cat)
+      cat.user_id == self.id
+    end
+
     private
     
     def ensure_session_token

@@ -22,16 +22,26 @@
   <br>
   <div class="rental-requests">
   <h2>Rental Requests</h2>
+  <% if @cat.rental_requests.empty? %>
+    <p><%= @cat.name %> has no rental requests</p>
+  <% else %>
   <table>
     <tr>
       <th>Start Date</th>
       <th>End Date</th>
       <th>Status</th>
+      <th></th>
+      <th>Requester</th>
     </tr>
-    <% @cat.rental_requests.order('start_date').each do |req| %>
+    <% @cat.rental_requests.includes(:user).order('start_date').each do |req| %>
       <%= render 'req_tr', req: req %>
     <% end %>
   </table>
-  </div>
+  <% end %>
+  
 
+  <% if logged_in? %>
+    <a href="<%= new_cat_rental_request_url(cat_id: @cat.id) %>">Make new request</a>  
+  <% end %>
+  </div>
 </section>

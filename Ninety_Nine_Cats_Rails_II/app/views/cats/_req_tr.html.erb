@@ -20,7 +20,10 @@
             value="<%= form_authenticity_token %>">
           <input type="submit" value="Deny">
         </form></td>
+        <td><%= req.user.username %></td>
     <% else %>
       <td><%= req.status %></td>
+      <td></td>
+      <td><%= req.user.username %></td>
     <% end %>
 </tr>

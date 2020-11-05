@@ -1,0 +1,4 @@
+  [1m[35m (7321.8ms)[0m  [1m[35mCREATE DATABASE "Music_App_Rails_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (1551.8ms)[0m  [1m[35mCREATE DATABASE "Music_App_Rails_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9

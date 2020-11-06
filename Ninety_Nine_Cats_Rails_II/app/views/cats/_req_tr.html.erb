@@ -1,24 +1,29 @@
+<% is_cat_owner = current_user && current_user.owns_cat?(@cat) %>
+
 <tr>
   <td><%= req.start_date %></td>
   <td><%= req.end_date %></td>
-  <td>
-    <% if req.pending? %>
-        <form action="<%= approve_cat_rental_request_url(req) %>" method="post">
+    <% if req.pending? && is_cat_owner %>
+        <td><form class="approve-button" action="<%= approve_cat_rental_request_url(req) %>" 
+              method="post">
           <input
             type="hidden"
             name="authenticity_token"
             value="<%= form_authenticity_token %>">
           <input type="submit" value="Approve">
-        </form>
-        <form action="<%= deny_cat_rental_request_url(req) %>" method="post">
+        </form></td>
+       <td><form class="deny-button" action="<%= deny_cat_rental_request_url(req) %>" 
+              method="post">
           <input
             type="hidden"
             name="authenticity_token"
             value="<%= form_authenticity_token %>">
           <input type="submit" value="Deny">
-        </form>
+        </form></td>
+        <td><%= req.user.username %></td>
     <% else %>
-      <%= req.status %>
+      <td><%= req.status %></td>
+      <td></td>
+      <td><%= req.user.username %></td>
     <% end %>
-  </td>
 </tr>

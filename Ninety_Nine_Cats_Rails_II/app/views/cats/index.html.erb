@@ -1,9 +1,29 @@
-<h1>Cats upon cats!</h1>
+<main>
+  <section class="cat-index-holder">
+  <nav>
+    <h1>Every Cat You Could Ever Ask For</h1>
+    <a href="<%= new_cat_url %>">Add Cat +</a> 
+  </nav>
 
-<ul>
-  <% @cats.each do |cat| %>
-    <li><a href="<%= cat_url(cat) %>"><%= cat.name %></a></li>
-  <% end %>
-</ul>
+  <section class="cat-index">
+    <% @cats.each do |cat| %>
+    <div class="cat-index-item">
+      <div>
+        <img src="https://images.unsplash.com/photo-1552933529-e359b2477252?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80">
+        <br>
+        <a href="<%= cat_url(cat) %>">Rent <%= cat.name %></a>
+      </div>
+    </div>
+    <% end %>
+    </section>
+  </section>
 
-<a href="<%= new_cat_url %>">Create cat</a>
+<% content_for :footer do %>
+  <p>This is the home page listing all cats.</p>
+<% end %>
+</main>
+
+
+
+
+

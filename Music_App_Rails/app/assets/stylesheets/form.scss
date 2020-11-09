@@ -1,0 +1,35 @@
+.user-form { 
+  display: grid;
+  float: left;
+  grid-template-rows: [h1] auto [seperator] 5px [fields] auto;
+  width: 250px;
+  background-color: #eb4d31;
+  margin-left: 100px;
+  border-radius: 5px;
+}
+
+.user-form h1 {
+  margin-left: 5px;
+  font-size: 38px;
+}
+
+.user-form .fields {
+  margin-left: 8px;
+  padding: 5px 0;
+  font-size: 20px;
+}
+
+.user-form .fields .user-info-input {
+  width: 212px;
+  height: 22px;
+}
+
+.user-form .form-submit-button {
+  font-size: 20px;
+  background-color: #c79f26;
+  margin: 8px 0;
+  margin-left: 2.5px;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+

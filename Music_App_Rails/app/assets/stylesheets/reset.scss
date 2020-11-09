@@ -1,0 +1,48 @@
+
+html, body, font, a, p, ol, 
+ul, li, h1, h2, h3 , h4, 
+div, section, form, label, 
+article, aside, figure, 
+figcaption, header, footer, nav 
+{ 
+  font: inherit;
+  font-family: 'Roboto Slab', serif;
+  font-size: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  text-decoration: none;
+  box-sizing: content-box;
+}
+
+img
+{
+  width: 100%;
+}
+
+input[type="submit"] {
+    appearance: none;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: inherit;
+    background-color: inherit;
+    box-sizing: none;
+    padding: none;
+    border-width: none;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+}
+
+input[type="submit"]:hover, a:hover {
+    cursor: pointer;
+    opacity: 84%;
+}
+
+input:focus textarea:focus select:focus {
+  outline: none;
+}

@@ -6,12 +6,12 @@
           <th>
             Band Name
           </th>
-          <th>Edit Band</th>
+          <th>Edit/Delete</th>
         </thead>
         <tbody>
           <% @bands.order(:name).each do |band| %>
           <tr>
-            <td><%= band.name %></td>
+            <td><a href="<%= band_url(band) %>"><%= band.name %></a></td>
             <td><a href="<%= edit_band_url(band) %>">Edit</a>/
             <form action="<%= band_url(band) %>" method="POST">
             <%= auth_token %>
@@ -25,6 +25,6 @@
     </table>
   </div><br>
 
-  <a class="create-new-band" href="<%= new_band_url %>">Create A New Band</a>
+  <a class="create-button" href="<%= new_band_url %>">Create A New Band</a>
 </section>
 

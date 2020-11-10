@@ -8,6 +8,11 @@ class BandsController < ApplicationController
     render :new
   end
 
+  def show
+    @band = Band.find(params[:id])
+    render :show
+  end
+  
   def create
     band = Band.new(band_params)
 

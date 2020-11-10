@@ -5,6 +5,7 @@
   box-shadow: 3px 3px 5px black;
   width: auto;
   float: left;
+  clear: left;
   white-space: nowrap;
   margin-bottom: 20px;
 }
@@ -12,6 +13,7 @@
 .bands-table { 
   display: block;
   float: left;
+  clear: left;
   text-align: left; 
   margin-left: 20px;
   font-size: 25px;
@@ -19,6 +21,7 @@
   border-collapse: collapse;
   border: 1px solid black;
   box-shadow: 5px 5px 10px black;
+  width: auto;
   white-space: nowrap;
 }
 
@@ -34,19 +37,21 @@
 
 .bands-table td {
   padding-left: 10px;
-  line-height: 30px;
+  text-align: left;
+  white-space: nowrap;
 }
 
 .bands-table form {
   float: right;
   font-size: 25px;
+  margin-right: 20px;
 }
 
 .new-band-form .errors {
     padding: 8px;
 }
 
-.create-new-band {
+.create-button {
     float: left;
     clear: left;
     font-size: 20px;
@@ -57,3 +62,10 @@
     border: 1px solid black;
     white-space: nowrap;
 }
+
+.radio-box{
+  border: 1px solid black;
+  margin: 10px 0;
+  width: 100px;
+}
+

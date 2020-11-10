@@ -1,0 +1,16 @@
+<section class="page">
+   <div>
+    <h2>Album Information</h2><br>
+    <h2><%= @album.name %></h2><br>
+  </div>
+  <div class="show-options">    
+  <a class="show-edit-button" href="<%= edit_album_url(@album) %>">Edit</a>
+    <form class="show-delete-button" action="<%= album_url(@album) %>" method="POST">
+        <%= auth_token %>
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+  <a class="show-create-button" href="<%= new_band_album_url(@album.band_id) %>">Add New Album</a>
+  <a class="show-back-to-band"href="<%= band_url(@album.band_id) %>">Back to <%= @album.band.name %></a>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<section class="page">
+  <div>
+  <h2><%= @band.name %></h2><br>
+    <table class="bands-table">
+        <thead class="column-head">
+          <th>
+            Albums
+          </th>
+          <th>Edit/Delete</th>
+        </thead>
+        <tbody>
+          <% @band.albums.order(:name).each do |album| %>
+          <tr>
+            <td><a href="<%= album_url(album) %>"><%= album.name %></a></td>
+            <td><a href="<%= edit_album_url(album) %>">Edit</a>/
+            <form action="<%= album_url(album) %>" method="POST">
+            <%= auth_token %>
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+            </form>
+            </td> 
+        </tbody>
+        </tr>
+        <% end %>
+    </table>
+  </div><br>
+
+  <a class="create-button" href="<%= new_band_album_url(@band) %>">Add New Album</a>
+</section>

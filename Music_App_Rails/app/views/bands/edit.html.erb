@@ -1,0 +1,14 @@
+
+<div class="edit-band-form">
+    <h1>Edit: <%= @band.name %></h1><br>
+    <form class="fields" action="<%= band_url(@band) %>" method="POST">
+      <%= auth_token %>
+      <label for="band_name">Name</label><br>
+      <input class="user-info-input" type="text" 
+        name="band[name]" id="band_name" value="<%= @band.name %>"><br>
+      
+      <input type="hidden" name="_method" value="PATCH">
+      <input class="form-submit-button" type="submit" value="submit">
+    </form>
+    <a class="errors"><%= render 'shared/errors' %></a>
+</div>

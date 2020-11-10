@@ -2,14 +2,37 @@
   display: grid;
   float: left;
   grid-template-rows: [h1] auto [seperator] 5px [fields] auto;
-  width: 250px;
-  background-color: #eb4d31;
-  margin-left: 100px;
+  min-width: 280px;
+  width: auto;
+  background-color: blanchedalmond;
+  margin-left: 210px;
+  border-radius: 5px;
+}
+
+.new-band-form{ 
+  display: grid;
+  float: left;
+  grid-template-rows: [h1] auto [seperator] 5px [fields] auto;
+  min-width: 280px;
+  width: auto;
+  background-color: blanchedalmond;
+  margin-left: 210px;
+  border-radius: 5px;
+}
+
+.edit-band-form{ 
+  display: grid;
+  float: left;
+  grid-template-rows: [h1] auto [seperator] 5px [fields] auto;
+  min-width: 280px;
+  width: auto;
+  background-color: blanchedalmond;
+  margin-left: 210px;
   border-radius: 5px;
 }
 
 .user-form h1 {
-  margin-left: 5px;
+  margin: 0 5px;
   font-size: 38px;
 }
 
@@ -32,4 +55,55 @@
   padding: 3px 5px;
   border-radius: 5px;
 }
+
+.new-band-form h1 {
+  argin: 0 5px;
+  font-size: 38px;
+}
+
+.new-band-form .fields {
+  margin-left: 8px;
+  padding: 5px 0;
+  font-size: 20px;
+}
+
+.new-band-form .fields .user-info-input {
+  width: 212px;
+  height: 22px;
+}
+
+.new-band-form .form-submit-button {
+  font-size: 20px;
+  background-color: #c79f26;
+  margin: 8px 0;
+  margin-left: 2.5px;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+.edit-band-form h1 {
+  margin: 0 5px;
+  font-size: 38px;
+}
+
+.edit-band-form .fields {
+  margin-left: 8px;
+  padding: 5px 0;
+  font-size: 20px;
+}
+
+.edit-band-form .fields .user-info-input {
+  width: 212px;
+  height: 22px;
+}
+
+.edit-band-form .form-submit-button {
+  font-size: 20px;
+  background-color: #c79f26;
+  margin: 8px 0;
+  margin-left: 2.5px;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
 

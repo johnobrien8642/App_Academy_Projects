@@ -1,5 +1,5 @@
 body {
-  width: 900px;
+  align-items: center;
   background-color: #c93416;
 }
 
@@ -7,18 +7,25 @@ body {
   display: flex;
   float: left;
   justify-content: space-between;
-  font-size: 50px;
   width: 100%;
-  margin: 20px 100px;
+  margin: 0 auto;
   position: relative;
   z-index: 100;
   text-decoration: underline;
+  white-space: nowrap;
+  background: inherit;
+}
+
+.main-header h1 {
+  font-size: 50px;
+  margin: 10px 0 20px 200px;
 }
 
 .main-header div {
   display: flex;
-  font-size: 40%;
-  margin: 10px 0px;
+  font-size: 22px;
+  margin: 10px 200px 20px 0;
+  margin-left: 200px;
   align-self: flex-end;
 }
 
@@ -27,5 +34,28 @@ body {
   margin: 5px;
   background-color: #c79f26;
   border-radius: 10%;
+  border: 1px solid black;
+}
+
+.main-header div .log-out {
+  padding: 3px 5px;
+  margin: 5px;
+  background-color: #c79f26;
+  border-radius: 10%;
+  border: 1px solid black;
+}
+
+.main-header div .log-out input {
+  font-size: 22px;
+  text-decoration: underline;
+}
+
+.page {
+  margin: 0 200px;
+}
+
+.errors {
+  display: flex;
+  font-weight: bold;
 }
 

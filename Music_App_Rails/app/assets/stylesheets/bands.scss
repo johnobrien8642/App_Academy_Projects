@@ -1,0 +1,59 @@
+.page h2 {
+  font-size: 40px;
+  background-color: blanchedalmond;
+  border: 1px solid black;
+  box-shadow: 3px 3px 5px black;
+  width: auto;
+  float: left;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.bands-table { 
+  display: block;
+  float: left;
+  text-align: left; 
+  margin-left: 20px;
+  font-size: 25px;
+  background-color: blanchedalmond;
+  border-collapse: collapse;
+  border: 1px solid black;
+  box-shadow: 5px 5px 10px black;
+  white-space: nowrap;
+}
+
+.column-head {
+  font-size: 30px;
+  line-height: inherit;
+}
+
+.bands-table td, th {
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.bands-table td {
+  padding-left: 10px;
+  line-height: 30px;
+}
+
+.bands-table form {
+  float: right;
+  font-size: 25px;
+}
+
+.new-band-form .errors {
+    padding: 8px;
+}
+
+.create-new-band {
+    float: left;
+    clear: left;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 28px;
+    padding: 8px;
+    background-color: #c79f26;
+    border: 1px solid black;
+    white-space: nowrap;
+}

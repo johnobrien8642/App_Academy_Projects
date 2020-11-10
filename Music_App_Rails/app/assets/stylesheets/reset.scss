@@ -3,7 +3,8 @@ html, body, font, a, p, ol,
 ul, li, h1, h2, h3 , h4, 
 div, section, form, label, 
 article, aside, figure, 
-figcaption, header, footer, nav 
+figcaption, header, footer, 
+nav, input 
 { 
   font: inherit;
   font-family: 'Roboto Slab', serif;
@@ -14,6 +15,7 @@ figcaption, header, footer, nav
   vertical-align: baseline;
   text-decoration: none;
   box-sizing: content-box;
+  list-style-type: none;
 }
 
 img
@@ -38,7 +40,7 @@ input[type="submit"] {
     border-image: none;
 }
 
-input[type="submit"]:hover, a:hover {
+input[type="submit"]:hover, a:hover, form:hover {
     cursor: pointer;
     opacity: 84%;
 }

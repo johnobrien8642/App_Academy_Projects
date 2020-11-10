@@ -1,0 +1,30 @@
+<section class="page">
+  <div>
+  <h2>A Current List of Music App's Catalogue</h2><br>
+    <table class="bands-table">
+        <thead class="column-head">
+          <th>
+            Band Name
+          </th>
+          <th>Edit Band</th>
+        </thead>
+        <tbody>
+          <% @bands.order(:name).each do |band| %>
+          <tr>
+            <td><%= band.name %></td>
+            <td><a href="<%= edit_band_url(band) %>">Edit</a>/
+            <form action="<%= band_url(band) %>" method="POST">
+            <%= auth_token %>
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+            </form>
+            </td> 
+        </tbody>
+        </tr>
+        <% end %>
+    </table>
+  </div><br>
+
+  <a class="create-new-band" href="<%= new_band_url %>">Create A New Band</a>
+</section>
+

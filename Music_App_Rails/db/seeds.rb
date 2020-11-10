@@ -7,6 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-u1 = User.new(email:"amigo@badhombre.com", password:"ayepapi")
-u2 = User.new(email:"howabowdat@cashmeoutside.com", password:"badbhabi")
-u3 = User.new(email:"joejonas@thejonasbros.com", password:"tiddlywinks") 
+u1 = User.create(email:"amigo@badhombre.com", password:"ayepapi")
+u2 = User.create(email:"howabowdat@cashmeoutside.com", password:"badbhabi")
+u3 = User.create(email:"joejonas@thejonasbros.com", password:"tiddlywinks")
+
+b1 = Band.create(name:"The Plonking Widgets")
+b2 = Band.create(name:"Get Back! A Beatles Tribute")
+b3 = Band.create(name:"Silverback Gorilla Dollars")
+b4 = Band.create(name:"Saddam Hussein")
+b5 = Band.create(name:"War in Indonesia?")

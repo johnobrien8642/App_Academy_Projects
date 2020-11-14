@@ -3,7 +3,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :destroy, :show]
   
-  resources :albums, only: [:create, :edit, :show, :update, :destroy]
+  resources :albums, only: [:create, :edit, :show, :update, :destroy] do
+    resources :tracks, only: [:new]
+  end
+
+  resources :tracks, only: [:create, :edit, :show, :update, :destroy] 
+
+  resources :notes, only: [:create, :destroy] 
 
   resources :bands do
     resources :albums, only: [:new]

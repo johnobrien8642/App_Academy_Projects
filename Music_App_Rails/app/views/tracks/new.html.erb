@@ -1,0 +1,47 @@
+<h1>Add New Track</h1><br>
+
+<form class="fields" action="<%= tracks_url %>" method="POST">
+<%= auth_token %>
+<label for='track-band'>Album</label><br>
+<select id='track-band' name="tracks[album_id]">
+<option value="" disabled>--Select A Band--</option>
+<% @band_albums.order(:name).each do |album| %>
+<option value="<%= album.id %>"
+<%= "selected" if @album.id == album.id %>>
+<%= album.name %>
+</option>
+<% end %>
+</select><br>
+        
+<label for="track_title">Title</label><br>
+<input class="user-info-input" type="text" 
+  name="tracks[title]" id="track_name" value="<%= @new_track.title %>"><br>
+<label for="track_lyrics">Lyrics</label><br>
+<textarea name="tracks[lyrics]" id="track_lyrics" 
+cols="50" rows="10"><%= @new_track.lyrics %></textarea><br>
+<label for="album_year">Order</label><br>
+<input type="number" min="1" max="100" 
+  name="tracks[ord]" id="track_ord" value="<%= @new_track.ord %>"><br>
+
+
+<label for="track_bonus">Bonus</label><br>
+<input type="radio" name="tracks[live]" 
+  id="track_bonus" value="true"  <%= "checked" if @new_track.bonus %>>
+<label for="track_bonus">Yes</label><br>
+<input type="radio" name="tracks[live]" 
+  id="track_bonus" value="false" <%= "checked" if !@new_track.bonus %>>
+<label for="track_bonus">No</label><br>
+
+<input class="form-submit-button" type="submit" value="submit">
+</form>
+
+<a><%= render 'shared/errors' %></a>
+  
+<a class="show-edit-button" href="<%= edit_album_url(@album) %>">Edit Album</a>
+<form class="show-delete-button" action="<%= album_url(@album) %>" method="POST">
+<%= auth_token %>
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Album">
+</form>
+<a class="show-create-button" href="<%= new_album_track_url(@album) %>">Add New Track</a>
+<a class="show-back-to-band"href="<%= band_url(@album.band_id) %>">Back to <%= @album.band.name %></a>

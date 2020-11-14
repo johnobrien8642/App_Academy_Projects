@@ -1,109 +1,41 @@
-.user-form { 
-  display: grid;
-  float: left;
-  grid-template-rows: [h1] auto [seperator] 5px [fields] auto;
-  min-width: 280px;
-  width: auto;
-  background-color: blanchedalmond;
-  margin-left: 210px;
+.user-form {
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid black;
   border-radius: 5px;
-}
-
-.new-band-form{ 
-  display: grid;
-  float: left;
-  grid-template-rows: [h1] auto [seperator] 5px [fields] auto;
-  min-width: 280px;
-  width: auto;
-  background-color: blanchedalmond;
-  margin-left: 210px;
-  border-radius: 5px;
-}
-
-.edit-band-form{ 
-  display: grid;
-  float: left;
-  grid-template-rows: [h1] auto [seperator] 5px [fields] auto;
-  min-width: 280px;
-  width: auto;
-  background-color: blanchedalmond;
-  margin-left: 210px;
-  border-radius: 5px;
-}
-
-.user-form h1 {
-  margin: 0 5px;
-  font-size: 38px;
-}
-
-.user-form .fields {
-  margin-left: 8px;
-  padding: 5px 0;
-  font-size: 20px;
-}
-
-.user-form .fields .user-info-input {
-  width: 212px;
-  height: 22px;
-}
-
-.user-form .form-submit-button {
-  font-size: 20px;
-  background-color: #c79f26;
-  margin: 8px 0;
-  margin-left: 2.5px;
+  width: 300px;
   padding: 3px 5px;
-  border-radius: 5px;
+  box-shadow: 3px 3px 10px;
 }
 
-.new-band-form h1 {
-  argin: 0 5px;
-  font-size: 38px;
-}
-
-.new-band-form .fields {
-  margin-left: 8px;
-  padding: 5px 0;
-  font-size: 20px;
-}
-
-.new-band-form .fields .user-info-input {
-  width: 212px;
-  height: 22px;
-}
-
-.new-band-form .form-submit-button {
-  font-size: 20px;
-  background-color: #c79f26;
-  margin: 8px 0;
-  margin-left: 2.5px;
+.user-form h2 {
+  display: inherit;
+  font-size: 30px;
+  border: inherit;
+  border-radius: inherit;
+  width: fit-content;
   padding: 3px 5px;
+  margin: 3px 2px;
+  box-shadow: 3px 3px 3px;
+}
+
+.user-form .user-form-title {
+  display: inherit;
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+.user-form .user-form-text-input {
+  height: 30px;
+}
+
+.user-form .user-form-submit {
+  display: inherit;
+  font-size: 22px;
+  border: 1px solid black;
   border-radius: 5px;
-}
-
-.edit-band-form h1 {
-  margin: 0 5px;
-  font-size: 38px;
-}
-
-.edit-band-form .fields {
-  margin-left: 8px;
-  padding: 5px 0;
-  font-size: 20px;
-}
-
-.edit-band-form .fields .user-info-input {
-  width: 212px;
-  height: 22px;
-}
-
-.edit-band-form .form-submit-button {
-  font-size: 20px;
-  background-color: #c79f26;
-  margin: 8px 0;
-  margin-left: 2.5px;
+  width: fit-content;
   padding: 3px 5px;
-  border-radius: 5px;
+  margin: 10px 2px;
+  box-shadow: 3px 3px 3px;
 }
-
-

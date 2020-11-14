@@ -1,8 +1,8 @@
-require 'byebug'
 class ApplicationController < ActionController::Base
 
     helper_method :current_user
     helper_method :logged_in?
+    helper_method :require_user!
 
     def login_user!(user)
       session[:session_token] = user.reset_session_token!
@@ -20,5 +20,12 @@ class ApplicationController < ActionController::Base
 
     def logged_in?
       !current_user.nil?
+    end
+
+    def require_user!
+      unless logged_in?
+        flash[:errors] = ["User must be logged in"]
+        redirect_to new_session_url
+      end
     end
 end

@@ -1,36 +1,33 @@
-<div class="new-band-form">
-    <h1>Create A New Album</h1><br>
-    <form class="fields"action="<%= albums_url %>" method="POST">
-      <%= auth_token %>
-      <label for='album-band'>Band</label><br>
-      <select id='album-band' name="albums[band_id]">
-        <% Band.all.each do |band| %>
-            <option <%= "selected" if @album.band_id == band.id %>
-                value="<%= band.id %>">
-                <%= band.name %>
-            </option>
-        <% end %>
-      </select><br>
-        
-      <label for="album_name">Name</label><br>
-      <input class="user-info-input" type="text" 
-        name="albums[name]" id="album_name"><br>
+<h1>Create A New Album</h1><br>
 
-      <label for="album_year">Year</label><br>
-      <input type="number" min="1900" max="2099" 
-        name="albums[year]" id="album_year"><br>
-      
-      <div class="radio-box">
-        <label for="album_live">Recording Style</label><br>
-        <input type="radio" name="albums[live]" 
-          id="album_live" value="true" >
-        <label for="album_live">Live</label><br>
-        <input type="radio" name="albums[live]" 
-          id="album_live" value="false" >
-        <label for="album_live">Studio</label><br>
-      </div>
+<form action="<%= albums_url %>" method="POST">
+<%= auth_token %>
+<label for='album-band'>Band</label><br>
+<select id='album-band' name="albums[band_id]">
+<% Band.all.each do |band| %>
+<option <%= "selected" if @album.band_id == band.id %>
+value="<%= band.id %>">
+<%= band.name %>
+</option>
+<% end %>
+</select><br>
 
-      <input class="form-submit-button" type="submit" value="submit">
-    </form>
-    <a class="errors"><%= render 'shared/errors' %></a>
-</div>
+<label for="album_name">Name</label><br>
+<input class="user-info-input" type="text" 
+  name="albums[name]" id="album_name"><b>
+<label for="album_year">Year</label><br>
+<input type="number" min="1900" max="2099" 
+  name="albums[year]" id="album_year"><br>
+
+<label for="album_live">Recording Style</label><br>
+<input type="radio" name="albums[live]" 
+  id="album_live" value="true" >
+<label for="album_live">Live</label><br>
+<input type="radio" name="albums[live]" 
+  id="album_live" value="false" >
+<label for="album_live">Studio</label><br>
+
+<input class="form-submit-button" type="submit" value="submit">
+</form>
+    
+<a class="errors"><%= render 'shared/errors' %></a>

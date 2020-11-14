@@ -14,23 +14,29 @@
   </head>
 
   <body>
-  <section class="main-header">
-  <h1><a href="<%= bands_url %>">Music App</a></h1>
-    <div>
+    <div class="base-container">
+    <div class="main-header">
+  
+      <h1><a href="<%= bands_url %>">Music App</a></h1>
+      
+      <div class="buttons">
+      
       <% if logged_in? %>
         <a href="<%= user_url(current_user.id) %>"><%= current_user.email %></a> 
+
         <form class="log-out" action="<%= session_url %>" method="POST">
           <%= auth_token %>
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Log out">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class="user-form-submit" type="submit" value="Log out">
         </form>
       <% else %>
         <a href="<%= new_session_url %>">Log In</a><br>
         <a href="<%= new_user_url %>">Sign Up</a>
       <% end %>
+      </div>
     </div>
-  </section>
 
     <%= yield %>
+    </div>
   </body>
 </html>

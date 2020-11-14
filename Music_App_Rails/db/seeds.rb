@@ -6,19 +6,54 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Album.destroy_all
+Band.destroy_all
+Track.destroy_all
+User.destroy_all
 
-u1 = User.create(email:"amigo@badhombre.com", password:"ayepapi")
-u2 = User.create(email:"howabowdat@cashmeoutside.com", password:"badbhabi")
-u3 = User.create(email:"joejonas@thejonasbros.com", password:"tiddlywinks")
+ActiveRecord::Base.connection.reset_pk_sequence!("albums")
+ActiveRecord::Base.connection.reset_pk_sequence!("bands")
+ActiveRecord::Base.connection.reset_pk_sequence!("tracks")
+ActiveRecord::Base.connection.reset_pk_sequence!("users")
 
-b1 = Band.create(name:"The Plonking Widgets")
-b2 = Band.create(name:"Get Back! A Beatles Tribute")
-b3 = Band.create(name:"Silverback Gorilla Dollars")
-b4 = Band.create(name:"Saddam Hussein")
-b5 = Band.create(name:"War in Indonesia?")
+#users
+50.times do 
+  email = Faker::Internet.email
+  password = Faker::Internet.password(min_length: 6)
+  User.create(email: email, password: password)
+end
 
-a1 = Album.create(name:"Total Destruction", year: 2005, band_id: b1.id)
-a2 = Album.create(name:"I'll Take Two, Please", year: 1988, band_id: b2.id)
-a3 = Album.create(name:"Jerry Minded", year: 1999, band_id: b3.id)
-a4 = Album.create(name:"The Blood of the Innocent", year: 2008, band_id: b4.id)
-a5 = Album.create(name:"Peace Or Nothing", year: 1976, band_id: b5.id)
+#bands
+50.times do
+  name = Faker::Music.band
+  Band.create(name: name)
+end
+
+#albums
+100.times do 
+  name = Faker::Music::PearlJam.album
+  year = rand(1900..2020)
+  band_id = rand(1..50)
+  live = Faker::Boolean.boolean(true_ratio: 0.1)
+  Album.create(name: name, year: year, band_id: band_id, live: live)
+end
+
+#songs
+500.times do
+  title = Faker::Music::GratefulDead.song
+  album_id = rand(1..100)
+  ord = rand(1..50)
+  bool = Faker::Boolean.boolean(true_ratio: 0.1)
+
+  Track.create(title: title, ord: ord, album_id: album_id, bonus: bool)
+end
+
+#notes
+
+1000.times do
+  track_id = rand(1..500)
+  user_id = rand(1..50)
+  note = Faker::Lorem.sentence(word_count: 4)
+
+  Note.create(track_id: track_id, user_id: user_id, note: note)
+end

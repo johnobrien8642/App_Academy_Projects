@@ -1,0 +1,27 @@
+<h1>Track Notes</h1><br>
+
+<table>
+<thead>
+<th>User</th>
+<th>Note</th>
+<th>Edit/Delete</th>
+</thead>
+<tbody>
+<% notes.each do |note| %>
+<tr>
+<td><a href="<%= user_url(note.user_id) %>"><%= note.user.email %></a></td>
+<td><%= note.note %></td>
+<% if note.user_id == current_user.id %>
+<td><form action="<%= note_url(note) %>" method="POST">
+<%= auth_token %>
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete">
+</form>
+</td> 
+<% else %>
+<td></td>
+<% end %>
+</tbody>
+</tr>
+<% end %>
+</table>

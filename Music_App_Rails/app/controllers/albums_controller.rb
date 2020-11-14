@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_action :require_user!
+
   def new
     @band = Band.find(params[:band_id])
     @album = Album.new(band_id: params[:band_id])
@@ -17,6 +19,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @tracks = Track.where(album_id: params[:id])
     @album = Album.find(params[:id])
     render :show
   end

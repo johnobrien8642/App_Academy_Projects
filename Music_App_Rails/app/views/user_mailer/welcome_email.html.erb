@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Music App!</title>
+</head>
+<body>
+    <h1><%= @user.email %>, welcome to Music App!</h1><br>
+    <p>
+      You have successfully signed up for Music App, 
+      your email, <%= @user.email %>, will be your username.
+    </p>
+    <p>
+      To log in to the site and activate your account
+      just follow this link: <a href="<%= @url %>">Activate My Account</a>
+    </p>
+    <p>
+      Thanks again for joining and we hope you enjoy Music App!
+    </p>
+</body>
+</html>

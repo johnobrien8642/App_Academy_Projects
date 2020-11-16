@@ -9,12 +9,16 @@ class SessionsController < ApplicationController
           params[:users][:password]
       )
 
-      if user.nil?
+      if user.nil? 
         flash.now[:errors] = ["Email and/or password incorrect"]
         render :new
-      else
+      elsif user.activated?
         login_user!(user)
         redirect_to bands_url
+      else
+        flash[:alerts] = ["You must activate your account. Go to your
+        email and click the activation link, then try logging in again."]
+        redirect_to new_session_url
       end
     end
 

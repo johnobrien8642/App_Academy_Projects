@@ -21,7 +21,9 @@ ActiveRecord::Base.connection.reset_pk_sequence!("users")
   email = Faker::Internet.email
   password = Faker::Internet.password(min_length: 6)
   activated = true
-  User.create(email: email, password: password, activated: activated)
+  admin = Faker::Boolean.boolean(true_ratio: 0.1)
+  User.create(email: email, password: password,
+      activated: activated, admin: admin)
 end
 
 #bands

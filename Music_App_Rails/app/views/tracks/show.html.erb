@@ -6,13 +6,16 @@
 <th>Number</th>
 <th>Track</th>
 <th>Lyrics</th>
+<% if user_admin? %>
 <th>Edit/Delete</th>
+<% end %>
 </thead>
 <tbody>
 <tr>
 <td><%= @track.ord %></td>
 <td><%= @track.title %></td>
 <td><%= ugly_lyrics(@track.lyrics) %></td>
+<% if user_admin? %>
 <td><a href="<%= edit_track_url(@track) %>">Edit</a>/
 <form action="<%= track_url(@track) %>" method="POST">
 <%= auth_token %>
@@ -20,6 +23,7 @@
 <input type="submit" value="Delete">
 </form>
 </td> 
+<% end %>
 </tbody>
 </tr>
 </table>

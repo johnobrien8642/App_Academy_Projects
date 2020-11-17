@@ -1,5 +1,7 @@
 class TracksController < ApplicationController 
   before_action :require_user!
+  before_action :user_admin?, only: [:create, :update, :destroy]
+
   
   def new
     band = Album.find(params[:album_id]).band

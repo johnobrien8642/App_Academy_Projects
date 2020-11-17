@@ -1,0 +1,32 @@
+<h2>Admin User List</h2><br>
+
+<%= render 'shared/notices' %>
+
+<table>        
+<thead>          
+<th>Users</th>
+<th>Delete</th>
+<th>Admin</th>
+</thead>
+<tbody>
+<% @users.order(:email).each do |user| %>
+<tr>
+<td><a href="<%= user_url(user) %>"><%= user.email %></a></td>
+<td>
+<form action="<%= user_url(user) %>" method="POST">
+<%= auth_token %>
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete">
+</form>
+</td>
+<% if user.admin %>
+<td>Admin</td>
+<% else %>
+<td><a href="<%= make_admin_user_url(user) %>">Make Admin</a></td>
+<% end %>
+</tr>
+<% end %>
+</tbody>
+</table>
+
+<a href="<%= new_user_url %>">Create A New User</a>

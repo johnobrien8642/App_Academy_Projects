@@ -1,5 +1,6 @@
 class BandsController < ApplicationController
   before_action :require_user!
+  before_action :user_admin?, only: [:create, :update, :destroy]
 
   def index
     @bands = Band.all

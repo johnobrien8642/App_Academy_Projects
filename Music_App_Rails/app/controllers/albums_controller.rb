@@ -1,5 +1,7 @@
 class AlbumsController < ApplicationController
   before_action :require_user!
+  before_action :user_admin?, only: [:create, :update, :destroy]
+
 
   def new
     @band = Band.find(params[:band_id])
@@ -7,7 +9,7 @@ class AlbumsController < ApplicationController
     render :new
   end
 
-  def create
+  def create    
     album = Album.new(album_params)
 
     if album.save

@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
-
     helper_method :current_user
     helper_method :logged_in?
     helper_method :require_user!
     helper_method :activated?
+    helper_method :user_admin?
+
+    def user_admin?
+      current_user.admin
+    end
 
     def login_user!(user)
       session[:session_token] = user.reset_session_token!

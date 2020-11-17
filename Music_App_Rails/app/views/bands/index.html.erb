@@ -6,12 +6,15 @@
 <table>        
 <thead>          
 <th>Band Name</th>
+<% if user_admin? %>
 <th>Edit/Delete</th>
+<% end %>
 </thead>
 <tbody>
 <% @bands.order(:name).each do |band| %>
 <tr>
 <td><a href="<%= band_url(band) %>"><%= band.name %></a></td>
+<% if user_admin? %>
 <td><a href="<%= edit_band_url(band) %>">Edit</a>/
 <form action="<%= band_url(band) %>" method="POST">
 <%= auth_token %>
@@ -19,10 +22,13 @@
 <input type="submit" value="Delete">
 </form>
 </td> 
-</tbody>
+<% end %>
 </tr>
 <% end %>
+</tbody>
 </table>
 
+<% if user_admin? %>
 <a href="<%= new_band_url %>">Create A New Band</a>
+<% end %>
 

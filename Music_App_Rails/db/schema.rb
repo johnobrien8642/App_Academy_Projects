@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_210518) do
+ActiveRecord::Schema.define(version: 2020_11_17_231423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2020_11_16_210518) do
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "tagable_type"
+    t.bigint "tagable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tagable_type", "tagable_id"], name: "index_tags_on_tagable_type_and_tagable_id"
+  end
+
   create_table "tracks", force: :cascade do |t|
     t.string "title", null: false
     t.integer "ord", null: false
@@ -65,4 +74,5 @@ ActiveRecord::Schema.define(version: 2020_11_16_210518) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token"
   end
+
 end

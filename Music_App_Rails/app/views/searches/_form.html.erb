@@ -1,0 +1,13 @@
+
+<form class="fields" action="<%= searches_url %>" method="GET">
+<%= auth_token %>
+
+<label for="tag_search">Filter By Genre</label>
+<select name="search[tag]" id="tag_search">
+<% Tag.all.uniq(&:tag).each do |tag| %>
+<option value="<%= tag.tag %>"><%= tag.tag %></option>
+<% end %>
+</select>
+
+<input class="form-submit-button" type="submit" value="submit">
+</form>

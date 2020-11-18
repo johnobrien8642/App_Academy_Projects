@@ -10,11 +10,13 @@ Album.destroy_all
 Band.destroy_all
 Track.destroy_all
 User.destroy_all
+Tag.destroy_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!("albums")
 ActiveRecord::Base.connection.reset_pk_sequence!("bands")
 ActiveRecord::Base.connection.reset_pk_sequence!("tracks")
 ActiveRecord::Base.connection.reset_pk_sequence!("users")
+ActiveRecord::Base.connection.reset_pk_sequence!("tags")
 
 #users
 50.times do 
@@ -41,7 +43,7 @@ end
   Album.create(name: name, year: year, band_id: band_id, live: live)
 end
 
-#songs
+#tracks
 500.times do
   title = Faker::Music::GratefulDead.song
   album_id = rand(1..100)
@@ -52,11 +54,37 @@ end
 end
 
 #notes
-
 1000.times do
   track_id = rand(1..500)
   user_id = rand(1..50)
   note = Faker::Lorem.sentence(word_count: 4)
 
   Note.create(track_id: track_id, user_id: user_id, note: note)
+end
+
+#album tags
+200.times do 
+  album_id = rand(1..100)
+  album_type = Album
+  tag = Faker::Music.genre
+
+  Tag.create(tagable_id: album_id, tagable_type: album_type,  tag: tag)
+end
+
+#track tags 
+1000.times do 
+  track_id = rand(1..500)
+  track_type = Track
+  tag = Faker::Music.genre
+
+  Tag.create(tagable_id: track_id, tagable_type: track_type, tag: tag)
+end
+
+#bands tags
+100.times do 
+  band_id = rand(1..50)
+  band_type = Band
+  tag = Faker::Music.genre
+
+  Tag.create(tagable_id: band_id, tagable_type: band_type, tag: tag)
 end

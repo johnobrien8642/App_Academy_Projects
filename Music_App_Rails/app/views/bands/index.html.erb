@@ -6,6 +6,7 @@
 <table>        
 <thead>          
 <th>Band Name</th>
+<th>Tags</th>
 <% if user_admin? %>
 <th>Edit/Delete</th>
 <% end %>
@@ -14,6 +15,8 @@
 <% @bands.order(:name).each do |band| %>
 <tr>
 <td><a href="<%= band_url(band) %>"><%= band.name %></a></td>
+<% tags = band.tags.map { |tag| tag.name } %>
+<td><%= tags.join(', ') %></td>
 <% if user_admin? %>
 <td><a href="<%= edit_band_url(band) %>">Edit</a>/
 <form action="<%= band_url(band) %>" method="POST">

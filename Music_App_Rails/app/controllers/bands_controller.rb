@@ -3,7 +3,8 @@ class BandsController < ApplicationController
   before_action :user_admin?, only: [:create, :update, :destroy]
 
   def index
-    @bands = Band.all
+    @bands = Band.search(params[:search]) 
+    # fail
     render :index
   end
 

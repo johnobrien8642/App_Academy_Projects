@@ -34,6 +34,26 @@
         <a href="<%= new_user_url %>">Sign Up</a>
       <% end %>
       </div>
+      
+      <% if logged_in? %>
+      <div class="search">
+        
+        <label for="bands_search">Search Bands</label>
+        <form action="<%= searches_url %>" method="GET">
+        <%= auth_token %>
+        <select name="model">
+        <option value="site">Search Site</option>
+        <option value="bands">Bands</option>
+        <option value="albums">Albums</option> 
+        <option value="tracks">Tracks</option> 
+        </select>
+
+        <input type="search" name="search" id="search">
+        <input type="submit" value="submit">
+        </form>
+      </div>
+      <% end %>
+      
     </div>
 
     <%= yield %>

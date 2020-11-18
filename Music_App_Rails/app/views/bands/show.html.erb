@@ -1,0 +1,30 @@
+<h2><%= @band.name %></h2><br>
+
+<table>
+<thead>
+<th>Albums</th>
+<% if user_admin? %>
+<th>Edit/Delete</th>
+<% end %>
+</thead>
+<tbody>
+<% @band.albums.order(:name).each do |album| %>
+<tr>
+<td><a href="<%= album_url(album) %>"><%= album.name %></a></td>
+<% if user_admin? %>
+<td><a href="<%= edit_album_url(album) %>">Edit</a>/
+<form action="<%= album_url(album) %>" method="POST">
+<%= auth_token %>
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete">
+</form>
+</td> 
+<% end %>
+</tbody>
+</tr>
+<% end %>
+</table>
+
+<% if user_admin? %>
+<a class="create-button" href="<%= new_band_album_url(@band) %>">Add New Album</a>
+<% end %>

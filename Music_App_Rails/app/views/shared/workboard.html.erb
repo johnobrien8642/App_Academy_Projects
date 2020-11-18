@@ -1,0 +1,53 @@
+         
+        // albums/edit.html.erb pieces for pre-selecting drop down for bands, 
+        // options_for_select works
+         <% if band.id == params[:band_id] %>
+          <option value="<%= band.id %>" selected>
+              <%= band.name %></option>
+          <% else %>
+          <option value="<%= band.id%>">
+            <%= band.name %></option>
+          <% end %>
+
+          <%= options_for_select([[band.name, band.id]], params[:band_id]) %>
+
+          <option value="<%= band.id %>" selected="<%= "selected" if band.id == params[:band_id] %>"><%= band.name %></option>
+
+        //albums/show.html.erb keeping this here until tracks are added 
+
+        <table class="bands-table">
+        <thead class="column-head">
+          <th>
+            Albums
+          </th>
+          <th>Edit/Delete</th>
+        </thead>
+        <tbody>
+          <% @album.tracks.order(:id).each do |album| %>
+          <tr>
+            <td><%= album.name %></td>
+            <td><a href="<%= edit_album_url(album) %>">Edit</a>/
+            <form action="<%= album_url(album) %>" method="POST">
+            <%= auth_token %>
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+            </form>
+            </td> 
+        </tbody>
+        </tr>
+        <% end %>
+    </table>
+
+    // from albums/new.html.erb trying out solution to understand
+    // better...
+    <label for="band-select">Band</label><br>
+      <select name="albums[band_id]" id="band-select">
+        <option value="" selected disabled>--Select A Band--</option> 
+        <% @bands.order(:name).each do |band| %>
+           <%= options_for_select([[band.name, band.id]], params[:band_id]) %>
+        <% end %>
+      </select><br>
+
+    // search bar form putting it here to test speed of website without
+      
+      

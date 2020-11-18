@@ -1,0 +1,22 @@
+<div class="user-form">
+  <%= render 'shared/errors' %>
+  <%= render 'shared/notices' %>
+  <%= render 'shared/alerts' %>
+      
+  <h2>Sign In</h2><br>
+      
+  <form action="<%= session_url %>" method="POST">
+    <%= auth_token %>
+      <label class="user-form-title" 
+        for="user_email">Email</label><br>
+      <input class="user-form-text-input" type="text" 
+        name="users[email]" id="user_email"><br>
+  
+      <label class="user-form-title" 
+        for="user_password">Password</label><br>
+      <input class="user-form-text-input" type="text" 
+        name="users[password]" id="user_password"><br>
+  
+      <input class="user-form-submit" type="submit" value="submit">
+  </form>
+</div>

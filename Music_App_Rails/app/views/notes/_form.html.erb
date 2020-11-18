@@ -1,0 +1,12 @@
+<h1>Add New Note</h1><br>
+
+<form class="fields" action="<%= notes_url %>" method="POST">
+<%= auth_token %>
+
+<input type="hidden" name="notes[track_id]" value="<%= track.id %>">
+  
+<label for="note_text">Note</label><br>
+<textarea name="notes[note]" id="note_text" cols="30" rows="10"></textarea>
+
+<input class="form-submit-button" type="submit" value="submit">
+</form>

@@ -1,0 +1,40 @@
+<h2>Album Information</h2><br>
+<h2><%= @album.name %></h2><br>
+    
+ 
+<table>
+<thead>
+<th>Number</th>
+<th>Tracks</th>
+<% if user_admin? %>
+<th>Edit/Delete</th>
+<% end %>
+</thead>
+<tbody>
+<% @tracks.order(:ord).each do |track| %>
+<tr>
+<td><%= track.ord %></td>
+<td><a href="<%= track_url(track) %>"><%= track.title %></a></td>
+<% if user_admin? %>
+<td><a href="<%= edit_track_url(track) %>">Edit</a>/
+<form action="<%= track_url(track) %>" method="POST">
+<%= auth_token %>
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete">
+</form>
+</td> 
+<% end %>
+</tbody>
+</tr>
+<% end %>
+</table>
+<% if user_admin? %>
+<a href="<%= edit_album_url(@album) %>">Edit Album</a>
+<form action="<%= album_url(@album) %>" method="POST">
+<%= auth_token %>
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Album">
+</form>
+<a href="<%= new_album_track_url(@album) %>">Add New Track</a>
+<% end %>
+<a href="<%= band_url(@album.band_id) %>">Back to <%= @album.band.name %></a>

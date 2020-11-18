@@ -1,0 +1,41 @@
+.user-form {
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 300px;
+  padding: 3px 5px;
+  box-shadow: 3px 3px 10px;
+}
+
+.user-form h2 {
+  display: inherit;
+  font-size: 30px;
+  border: inherit;
+  border-radius: inherit;
+  width: fit-content;
+  padding: 3px 5px;
+  margin: 3px 2px;
+  box-shadow: 3px 3px 3px;
+}
+
+.user-form .user-form-title {
+  display: inherit;
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+.user-form .user-form-text-input {
+  height: 30px;
+}
+
+.user-form .user-form-submit {
+  display: inherit;
+  font-size: 22px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: fit-content;
+  padding: 3px 5px;
+  margin: 10px 2px;
+  box-shadow: 3px 3px 3px;
+}

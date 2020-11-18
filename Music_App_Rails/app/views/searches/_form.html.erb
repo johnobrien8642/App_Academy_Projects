@@ -1,13 +1,16 @@
+    <div class="search">
+        
+        <label for="bands_search">Search</label>
+        <form action="<%= searches_url %>" method="GET">
+        <%= auth_token %>
+        <select name="model">
+        <option value="site">Search Site</option>
+        <option value="bands">Bands</option>
+        <option value="albums">Albums</option> 
+        <option value="tracks">Tracks</option> 
+        </select>
 
-<form class="fields" action="<%= searches_url %>" method="GET">
-<%= auth_token %>
-
-<label for="tag_search">Filter By Genre</label>
-<select name="search[tag]" id="tag_search">
-<% Tag.all.uniq(&:tag).each do |tag| %>
-<option value="<%= tag.tag %>"><%= tag.tag %></option>
-<% end %>
-</select>
-
-<input class="form-submit-button" type="submit" value="submit">
-</form>
+        <input type="search" name="search" id="search">
+        <input type="submit" value="submit">
+        </form>
+    </div>

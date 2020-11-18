@@ -4,7 +4,6 @@ class BandsController < ApplicationController
 
   def index
     @bands = Band.search(params[:search]) 
-    # fail
     render :index
   end
 

@@ -37,6 +37,10 @@ class User < ApplicationRecord
       self.save!
       self.session_token
     end
+    
+    def activate!
+      self.update_attribute(:activated, true)
+    end
 
     private
     

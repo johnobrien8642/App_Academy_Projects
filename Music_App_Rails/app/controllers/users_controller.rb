@@ -15,12 +15,19 @@ class UsersController < ApplicationController
       user = User.new(user_params)
 
       if user.save
-        msg = UserMailer.welcome_email(user)
-        msg.deliver_now
-        flash[:alerts] = ["A link to activate your account has
-          been sent to your email. Click the link in your email
-          to finish logging in."]
-        redirect_to new_session_url
+        # Activation email flow
+        #----------------------------------------------------------------------
+        # msg = UserMailer.welcome_email(user)
+        # msg.deliver_now
+        # flash[:alerts] = ["A link to activate your account has
+        #   been sent to your email. Click the link in your email
+        #   to finish logging in."]
+        # redirect_to new_session_url
+        #----------------------------------------------------------------------
+        # Without activation email flow, passes current tests
+        user.activate!
+        login_user!(user)
+        redirect_to bands_url
       else
         flash.now[:errors] = user.errors.full_messages
         render :new
@@ -34,19 +41,15 @@ class UsersController < ApplicationController
     end
 
     def activate
-      user = User.find(params[:id])
-      email_activation_token = params[:activation_token]
-      if email_activation_token == user.activation_token
-        user.toggle(:activated).save
-        login_user!(user)
-        flash[:notices] = 
-          ["You're account has been 
-            activated, welcome to Music App!"]
-        redirect_to bands_url
-      else
-        flash[:errors] = ["Activation token invalid"]
-        redirect_to new_session_url
-      end
+      #linked to in activation email
+      #----------------------------------------------------------------------
+      user = User.find(params[activation_token: params[:activation_token]])
+      user.activate!
+      login_user!(user)
+      flash[:notices] = 
+      ["You're account has been activated, welcome to Music App!"]
+      redirect_to bands_url
+      #----------------------------------------------------------------------
     end
 
     def make_admin

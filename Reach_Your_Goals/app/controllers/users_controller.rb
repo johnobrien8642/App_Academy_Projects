@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :require_user!
 
     def new
       @user = User.new
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
 
       if @user.save
+        login_user!(@user)
         redirect_to user_url(@user)
       else
         flash.now[:errors] = @user.errors.full_messages
@@ -24,7 +26,6 @@ class UsersController < ApplicationController
     def destroy
       user = User.find(params[:id])
       user.destroy
-      redirect_to goals_url
     end
 
     private

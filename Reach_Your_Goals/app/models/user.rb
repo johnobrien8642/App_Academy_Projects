@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     validates :session_token, presence: true, uniqueness: true
     validates :username, presence: true, uniqueness: true
-    validates :password, :password_digest, presence: true
+    validates :password_digest, presence: true
     validates :password, length: { minimum: 6, allow_nil: true }
 
     attr_reader :password
@@ -22,13 +22,20 @@ class User < ApplicationRecord
       self.password_digest = BCrypt::Password.create(password)
     end
 
-    def self.generate_token
+    def self.generate_session_token
       SecureRandom::urlsafe_base64(16)
+    end
+
+    def reset_session_token!
+      self.session_token = User.generate_session_token
+      self.save!
+
+      self.session_token
     end
 
     private 
 
     def ensure_session_token
-      self.session_token ||= User.generate_token
+      self.session_token ||= User.generate_session_token
     end
 end

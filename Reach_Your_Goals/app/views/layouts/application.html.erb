@@ -10,6 +10,10 @@
   </head>
 
   <body>
+  <header>
+    <%= current_user.username unless current_user.nil?  %>
+  </header>
+
     <%= yield %>
   </body>
 </html>

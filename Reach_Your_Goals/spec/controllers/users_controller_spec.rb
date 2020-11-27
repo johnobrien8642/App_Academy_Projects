@@ -72,14 +72,5 @@ RSpec.describe UsersController, type: :controller do
             
             expect(find_user).to eq(nil)
         end
-
-        it "redirects to goals index" do
-            user = User.create!(username: "carlosherrera7", 
-                password: "carlosherrera7")
-            
-            post :destroy, params: { id: user.id }
-
-            expect(response).to redirect_to("/goals")
-        end
     end
 end

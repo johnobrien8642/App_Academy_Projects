@@ -1,1 +1,29 @@
 <h1>Add New Goal</h1><br>
+
+<form action="<%= goals_url %>" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+
+    <input type="hidden" name="goal[user_id]" 
+        value="<%= @user.id %>">
+
+    <label for="goal_title">Title</label><br>
+    <input type="text" name="goal[title]" 
+        id="goal_title"><br>
+
+    <label for="goal_description">Description</label><br>
+    <input type="text" name="goal[description]" 
+        id="goal_description"><br>
+
+    <label for="goal_privacy">Private</label><br>
+    <label for="goal_privacy_true">Yes</label><br>
+    <input type="radio" name="goal[private]" 
+        id="goal_privacy_true" value="true"><br>
+
+    <label for="goal_privacy_false">No</label><br>
+    <input type="radio" name="goal[private]" 
+        id="goal_privacy_false" value="false"><br>
+
+    <input type="submit" value="submit">
+</form>

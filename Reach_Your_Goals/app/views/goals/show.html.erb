@@ -1,0 +1,21 @@
+<h1><%= @goal.title %></h1><br>
+
+<p><%= @goal.description %></p><br>
+
+<label for="goal_privacy">Private</label><br>
+<% if @goal.private %>
+  <a>Yes</a><br>
+<% else %>
+  <a>No</a><br>
+<% end %>
+
+<% if current_user.id == @goal.user_id %>
+  <a href="<%= edit_goal_url(@goal) %>">Edit</a>/
+  <form action="<%= goal_url(@goal) %>" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+  </form>
+<% end %>

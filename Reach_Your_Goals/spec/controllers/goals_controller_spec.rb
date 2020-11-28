@@ -31,7 +31,7 @@ RSpec.describe GoalsController, type: :controller do
           allow(controller).to receive(:current_user) { nil }
         end
 
-        it "redirect to the login page" do 
+        it "redirects to the login page" do 
             post :create, params: { goal: {} }
 
             expect(response).to redirect_to(new_session_url)

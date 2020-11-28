@@ -11,7 +11,18 @@
 
   <body>
   <header>
-    <%= current_user.username unless current_user.nil?  %>
+  <h1>Reach Your Goals</h1><br>
+  <% if current_user %>
+    <a href="<%= user_url(current_user) %>"><%= current_user.username %></a><br>
+    <form action="<%= session_url %>" method="POST">
+    <input type="hidden"
+            name="authenticity_token"
+            value="<%= form_authenticity_token %>">
+
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="logout" id="logout" value="Log out">
+    </form><br>
+  <% end %>
   </header>
 
     <%= yield %>

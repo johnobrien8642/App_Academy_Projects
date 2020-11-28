@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :require_user!
+    before_action :require_user!, only: [:show, :destroy]
 
     def new
       @user = User.new
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
     def show
       @user = User.find(params[:id])
+      @goals = User.find(params[:id]).goals
       render :show
     end
 

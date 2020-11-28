@@ -756,3 +756,18 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 220ms (Views: 214.7ms | ActiveRecord: 1.8ms)
 
 
+  [1m[36mUser Load (33.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/goals" for ::1 at 2020-11-28 14:49:00 -0500
+  [1m[35m (28.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/admin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by GoalsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qQ3POnVx_61QmlOqS88UQg"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendering goals/index.html.erb within layouts/application
+  [1m[36mGoal Load (1.8ms)[0m  [1m[34mSELECT "goals".* FROM "goals"[0m
+  ↳ app/views/goals/index.html.erb:10
+  Rendered goals/index.html.erb within layouts/application (28.3ms)
+Completed 200 OK in 701ms (Views: 583.9ms | ActiveRecord: 23.9ms)
+
+
+  [1m[36mGoal Load (1.0ms)[0m  [1m[34mSELECT "goals".* FROM "goals"[0m

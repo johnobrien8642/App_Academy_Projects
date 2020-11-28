@@ -1,6 +1,11 @@
 class GoalsController < ApplicationController
     before_action :require_user!
     
+    def index 
+      @goals = Goal.all
+      render :index
+    end
+    
     def new
       @user = User.find(params[:user_id])
       @goal = Goal.new

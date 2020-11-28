@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'rails_helper'
-require 'support/utilities'
 
 user = FactoryBot.create(:user)
 
@@ -15,50 +14,36 @@ feature "the new goal process" do
   feature "creating a new goal" do
     scenario "adds goal to users show page" do
       sign_in(user)
-      visit user_url(user)
-      click_on("Add New Goal")
-
-      fill_in "Title", with: "Lose ten pounds"
-      fill_in "Description", with: "I need to lose ten pounds!"
-      choose "No"
-      click_on "submit"
-
+      submit_new_goal("Lose ten pounds", user)
+      
       expect(page).to have_content("Lose ten pounds")
     end
   end
+end
 
+feature "goals index page" do
+  scenario "lists all goals" do
+    sign_in(user)
+    make_three_goals(user)
+    verify_three_goals
+  end
 end
 
 feature "examining a single goal" do
   scenario "has an individual goal show page" do
     sign_in(user)
-    visit user_url(user)
-    click_on("Add New Goal")
+    submit_new_goal("Lose ten pounds", user)
+    click_on "Lose ten pounds"
 
-    fill_in "Title", with: "Lose twenty pounds"
-    fill_in "Description", with: "I need to lose twenty pounds!"
-    choose "No"
-    click_on "submit"
-
-    click_on "Lose twenty pounds"
-
-    expect(page).to have_content("Lose twenty pounds")
+    expect(page).to have_content("Lose ten pounds")
   end
 end
 
 feature "updating a goal" do
   scenario "has a goal update page" do
     sign_in(user)
-    visit user_url(user)
-    click_on("Add New Goal")
-
-    fill_in "Title", with: "Lose thirty pounds"
-    fill_in "Description", with: "I need to lose thirty pounds!"
-    choose "No"
-    click_on "submit"
-
-    click_on "Lose thirty pounds"
-
+    submit_new_goal("Lose ten pounds", user)
+    click_on "Lose ten pounds"
     click_on "Edit"
 
     expect(page).to have_content("Edit Goal")
@@ -66,22 +51,14 @@ feature "updating a goal" do
   
   scenario "redirects back to goal show page on success" do
     sign_in(user)
-    visit user_url(user)
-    click_on("Add New Goal")
-
-    fill_in "Title", with: "Lose thirty pounds"
-    fill_in "Description", with: "I need to lose thirty pounds!"
-    choose "No"
-    click_on "submit"
-
-    click_on "Lose thirty pounds"
-
+    submit_new_goal("Lose ten pounds", user)
+    click_on "Lose ten pounds"
     click_on "Edit"
 
-    fill_in "Title", with: "Lose thirty pounds!"
+    fill_in "Title", with: "Lose ten pounds!"
     click_on "submit"
 
-    expect(page).to have_content("Lose thirty pounds!")
+    expect(page).to have_content("Lose ten pounds!")
   end
 
 end
@@ -89,14 +66,7 @@ end
 feature "destroying a goal" do 
   scenario "redirects to users show page on success" do
     sign_in(user)
-    visit user_url(user)
-    click_on("Add New Goal")
-
-    fill_in "Title", with: "Lose forty pounds"
-    fill_in "Description", with: "I need to lose forty pounds!"
-    choose "No"
-    click_on "submit"
-
+    submit_new_goal("Lose ten pounds", user)
     click_on "Delete"
 
     expect(page).to have_content("Goals")

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   end
 
 
-  resources :goals, only: [:index, :create, :show, :edit, :update, :destroy]
+  resources :goals, only: [:index, :create, :show, :edit, :update, :destroy] do
+    member do
+      post :toggle_completed 
+    end
+  end
   resource :session, only: [:new, :create, :destroy]
 end

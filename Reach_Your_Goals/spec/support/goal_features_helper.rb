@@ -30,4 +30,8 @@ module GoalFeaturesHelper
     expect(page).to have_content "Lose thirty pounds"
   end
 
+  def user_marks_goal_complete(user)
+    visit user_url(user)
+    click_button('Mark Completed', match: :first)
+  end
 end

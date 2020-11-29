@@ -11,7 +11,7 @@
 
   <body>
   <header>
-  <h1>Reach Your Goals</h1><br>
+  <a href="<%= goals_url %>"><h1>Reach Your Goals</h1></a><br>
   <% if current_user %>
     <a href="<%= user_url(current_user) %>"><%= current_user.username %></a><br>
     <form action="<%= session_url %>" method="POST">
@@ -22,6 +22,9 @@
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" name="logout" id="logout" value="Log out">
     </form><br>
+  <% else %>
+    <a href="<%= new_user_url %>">Sign up</a><br>
+    <a href="<%= new_session_url %>">Sign in</a><br>
   <% end %>
   </header>
 

@@ -1,17 +1,29 @@
 <h1>Goals</h1><br>
-
+ 
 <table>
 <thead>
   <th>Title</th>
   <th>Description</th>
+  <th>Completed</th>
   <th>Edit/Delete</th>
 </thead>
 <tbody>
   <% @goals.each do |goal| %>
   <tr>
+    <% if current_user.nil? %>
+        <% unless goal.private %>
+          <td><a href="<%= goal_url(goal) %>"><%= goal.title %></a></td>
+          <td><%= goal.description %></td>
+        <% end %>
+    <% else %>
     <% if (goal.private || !goal.private) && current_user.id == goal.user_id %>
     <td><a href="<%= goal_url(goal) %>"><%= goal.title %></a></td>
     <td><%= goal.description %></td>
+    <% if goal.completed %>
+      <td>Yes</td>
+    <% else %>
+      <td>No</td>
+    <% end %>
     <td><a href="<%= edit_goal_url(goal) %>">Edit</a>/
     <form action="<%= goal_url(goal) %>" method="POST">
         <input type="hidden"
@@ -24,9 +36,10 @@
     <% elsif goal.private && current_user.id != goal.user_id %>
     <td></td>
     <td></td>
-    <% elsif !goal.private %>
+    <% elsif !goal.private && current_user.id != goal.user_id %>
     <td><a href="<%= goal_url(goal) %>"><%= goal.title %></a></td>
     <td><%= goal.description %></td>
+    <% end %>
     <% end %>
   </tr>
   <% end %>

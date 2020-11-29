@@ -1,5 +1,17 @@
 class GoalsController < ApplicationController
-    before_action :require_user!
+    before_action :require_user!, only: [:new, :edit, :destroy, :toggle_completed]
+    
+    def toggle_completed
+      goal = Goal.find(params[:id])
+      goal.toggle_completed!
+      if goal.completed
+        flash[:notices] = [goal.title + " marked completed!"]
+        redirect_to user_url(goal.user_id)
+      else
+        flash[:notices] = [goal.title + " marked incomplete"]
+        redirect_to user_url(goal.user_id)
+      end
+    end
     
     def index 
       @goals = Goal.all
@@ -16,7 +28,7 @@ class GoalsController < ApplicationController
       goal = Goal.new(goal_params)
 
       if goal.save 
-        redirect_to user_url(goal.user_id)
+        redirect_to goals_url
       else
         flash.now[:errors] = goal.errors.full_messages
         render :new
@@ -54,6 +66,6 @@ class GoalsController < ApplicationController
     private
 
     def goal_params
-      params.require(:goal).permit(:user_id, :title, :description)
+      params.require(:goal).permit(:user_id, :title, :description, :private)
     end
 end

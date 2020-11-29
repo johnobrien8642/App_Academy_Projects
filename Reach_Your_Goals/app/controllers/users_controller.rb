@@ -20,7 +20,8 @@ class UsersController < ApplicationController
 
     def show
       @user = User.find(params[:id])
-      @goals = User.find(params[:id]).goals
+      @complete_goals = User.find(params[:id]).goals.where(completed: true)
+      @incomplete_goals = User.find(params[:id]).goals.where(completed: false)
       render :show
     end
 

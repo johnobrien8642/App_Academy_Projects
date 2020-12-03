@@ -5,6 +5,18 @@
 <%= render 'shared/notices' %>
 
 <table>
+<thead>
+<th>Comments for <%= @user.username %></th>
+</thead>
+<tbody>
+<% @user.comments_on_self.includes(:author).each do |comment| %>
+<td><%= comment.author.username %></td>
+<td><%= comment.content %></td>
+<% end %>
+</tbody>
+</table>
+
+<table>
 <h1>Incomplete goals</h1>
 <thead>
   <th>Title</th>
@@ -45,6 +57,17 @@
     <td><%= goal.description %></td>
     <% end %>
   </tr>
+  <% unless goal.private && current_user.id != goal.user_id %>
+  <tr>
+    <td><%= render 'comments/on_goal', goal: goal %></td>
+  </tr>
+  <% end %>
+  <% goal.comments.includes(:author).each do |comment| %>
+  <tr>
+    <td><%= comment.author.username %></td>
+    <td><%= comment.content %></td>
+  </tr>
+  <% end %>
   <% end %>
 </tbody>
 </table><br>
@@ -90,6 +113,17 @@
     <td><%= goal.description %></td>
     <% end %>
   </tr>
+  <% unless goal.private && current_user.id != goal.user_id %>
+  <tr>
+    <td><%= render 'comments/on_goal', goal: goal %></td>
+  </tr>
+  <% end %>
+  <% goal.comments.includes(:author).each do |comment| %>
+  <tr>
+    <td><%= comment.author.username %></td>
+    <td><%= comment.content %></td>
+  </tr>
+  <% end %>
   <% end %>
 </tbody>
 </table>

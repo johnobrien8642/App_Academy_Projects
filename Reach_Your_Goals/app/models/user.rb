@@ -9,6 +9,16 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
 
     has_many :goals
+    has_many :comments_on_users,
+      class_name: :UserComment,
+      foreign_key: :author_id
+    has_many :comments_on_self,
+      class_name: :UserComment,
+      foreign_key: :user_id
+    has_many :goal_comments,
+      class_name: :GoalComment,
+      foreign_key: :goal_id
+
 
     def self.find_by_credentials(username, password)
       user = User.find_by(username: username)

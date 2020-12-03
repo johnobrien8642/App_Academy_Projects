@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReachYourGoals</title>
+    
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-b87dfca453e1f93c40085990d8eac8b39b918ed85e39eb2f0f7498ea9c2152f4.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+  <header>
+  <a href="http://www.example.com/goals"><h1>Reach Your Goals</h1></a><br>
+    <a href="http://www.example.com/users/21">shakita_herzog</a><br>
+    <form action="http://www.example.com/session" method="POST">
+    <input type="hidden"
+            name="authenticity_token"
+            value="SjqDap0fDST681vmN41n/tGjcEqt5j7fIl02i3mY2RiUkYnlT2rMM0EbOK8Hg1bwHiywM/vlLST5tdLym5mPMA==">
+
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="logout" id="logout" value="Log out">
+    </form><br>
+  </header>
+
+    <h1>shakita_herzog's Goals</h1><br>
+
+<a href="http://www.example.com/users/21/goals/new">Add New Goal</a><br>
+
+
+
+<table>
+<h1>Incomplete goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Completed</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+</tbody>
+</table><br>
+
+<table>
+<h1>Completed goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Incomplete</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="http://www.example.com/goals/9">Repudiandae qui.</a></td>
+    <td>Vel animi earum eos quis.</td>
+    <td>Yes
+        <form action="http://www.example.com/goals/9/toggle_completed" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="gp1cpjAghI896zg5Ndu766w4BTDxp/09sSd/Gaqra5FcNlYp4lVFmIYDW3AF1YrlY7fFSaek7sZqz5tgSKo9uQ==">
+        <input type="submit" value="Mark Incompleted">
+        </form>
+    </td>
+    <td><a href="http://www.example.com/goals/9/edit">Edit</a>/
+    <form action="http://www.example.com/goals/9" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="l4ndnsWf4obsnpBxZdm1bA9U7vWuM9DmtHY21XstnkVJItcRF+ojkVd28zhV14RiwNsujPgwwx1vntKsmSzIbQ==">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+  </tr>
+</tbody>
+</table>
+  </body>
+</html>

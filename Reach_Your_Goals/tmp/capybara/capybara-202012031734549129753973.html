@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReachYourGoals</title>
+    
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-b87dfca453e1f93c40085990d8eac8b39b918ed85e39eb2f0f7498ea9c2152f4.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+  <header>
+  <a href="http://www.example.com/goals"><h1>Reach Your Goals</h1></a><br>
+    <a href="http://www.example.com/users/39">lisbeth</a><br>
+    <form action="http://www.example.com/session" method="POST">
+    <input type="hidden"
+            name="authenticity_token"
+            value="Y8GXGA2hg/LcbiNHZzrmEpCiljvsQLqw314FDNFX2K1d2OtYVEEbzFLBUG2TKhbMbWoD6QBbtloehaguEmb6HA==">
+
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="logout" id="logout" value="Log out">
+    </form><br>
+  </header>
+
+    <h1>lisbeth's Goals</h1><br>
+
+<a href="http://www.example.com/users/39/goals/new">Add New Goal</a><br>
+
+
+
+<table>
+<thead>
+<th>Comments for lisbeth</th>
+</thead>
+<tbody>
+<td>kyoko</td>
+<td>Quia pariatur qui eaque sint.</td>
+</tbody>
+</table>
+
+<table>
+<h1>Incomplete goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Completed</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="http://www.example.com/goals/26">Autem culpa.</a></td>
+    <td>Neque non odit sed ab.</td>
+    <td>No
+        <form action="http://www.example.com/goals/26/toggle_completed" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="sSNjXKEIfC8J4sbWKBUlyDolVZ7hynnjP0lvpUQ862ePOh8c+OjkEYdNtfzcBdUWx+3ATA3RdQn+ksKHhw3J1g==">
+        <input type="submit" value="Mark Completed">
+        </form>
+    </td>
+    <td><a href="http://www.example.com/goals/26/edit">Edit</a>/
+    <form action="http://www.example.com/goals/26" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="Q/7ElNKgAsn58cQfYAPQMbj65s7nXLQa5Jcj2dD5Te5957jUi0Ca93detzWUEyDvRTJzHAtHuPAlTI77E8hvXw==">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+  </tr>
+  <tr>
+    <td><form action="http://www.example.com/goals/26/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="/SEeGJoDcL8dFg2qi0f1eKXDJavJtINpVkpN2REYA3/DOGJYw+PogZO5foB/VwWmWAuweSWvj4OXkeD70ikhzg==">
+    
+    <input type="hidden" name="goal_comment[author_id]" 
+      id="author_id" value="39">
+
+    <label for="goal_comment_content">Comment</label><br>
+    <input type="text" name="goal_comment[content]" 
+        id="goal_comment_content"><br>
+</form></td>
+  </tr>
+  <tr>
+    <td>kyoko</td>
+    <td>Aut sed nihil et in.</td>
+  </tr>
+</tbody>
+</table><br>
+
+<table>
+<h1>Completed goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Incomplete</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="http://www.example.com/goals/27">Facere aut.</a></td>
+    <td>Non qui et modi culpa.</td>
+    <td>Yes
+        <form action="http://www.example.com/goals/27/toggle_completed" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="glNjNceAdePb6ur95AZklUVjenPZBNx+UjXykp8ohb+8Sh91nmDt3VVFmdcQFpRLuKvvoTUf0JST7l+wXBmnDg==">
+        <input type="submit" value="Mark Incompleted">
+        </form>
+    </td>
+    <td><a href="http://www.example.com/goals/27/edit">Edit</a>/
+    <form action="http://www.example.com/goals/27" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="ABYlG3lOrjSo0m0r+cNJAJkYVgVpW76SooasqzHirS4+D1lbIK42CiZ9HgEN07neZNDD14VAsnhjXQGJ8tOPnw==">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+  </tr>
+  <tr>
+    <td><form action="http://www.example.com/goals/27/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="YbiTargl002UJV7u+Ja83eZSVVMH+wi0LCf2wLL5TDhfoe8q4cVLcxqKLcQMhkwDG5rAgevgBF7t/FvicchuiQ==">
+    
+    <input type="hidden" name="goal_comment[author_id]" 
+      id="author_id" value="39">
+
+    <label for="goal_comment_content">Comment</label><br>
+    <input type="text" name="goal_comment[content]" 
+        id="goal_comment_content"><br>
+</form></td>
+  </tr>
+  <tr>
+    <td>kyoko</td>
+    <td>Iure quod rerum exercitationem error.</td>
+  </tr>
+</tbody>
+</table>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReachYourGoals</title>
+    
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-b87dfca453e1f93c40085990d8eac8b39b918ed85e39eb2f0f7498ea9c2152f4.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+  <header>
+  <a href="http://www.example.com/goals"><h1>Reach Your Goals</h1></a><br>
+    <a href="http://www.example.com/users/new">Sign up</a><br>
+    <a href="http://www.example.com/session/new">Sign in</a><br>
+  </header>
+
+    <h1>Log in</h1><br>
+  <ul>
+    <li>User must be logged in</li>
+  </ul>
+<br>
+
+<form action="http://www.example.com/session" method="POST">
+    <input type="hidden"
+            name="authenticity_token"
+            value="S3/ebV+Obb3eKvqQdSPzD+TENN5KbaTsXgm6PB4e/uXGrnG1BQGRucwPw7Qr7yJtNT/hb+LEU6NinfwrPgPccg==">
+
+    <label for="username">Username</label><br>
+    <input type="text" name="user[username]" id="username"><br>
+
+    <label for="password">Password</label><br>
+    <input type="text" name="user[password]" id="password"><br>
+
+    <input type="submit" value="submit" id="submit">
+</form>
+  </body>
+</html>

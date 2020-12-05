@@ -5,8 +5,13 @@
     
     <input type="hidden" name="goal_comment[author_id]" 
       id="author_id" value="<%= current_user.id %>">
+    
+    <input type="hidden" name="goal_comment[user_id]" 
+      id="user_id" value="<%= goal.user_id %>">
 
-    <label for="goal_comment_content">Comment</label><br>
+    <label for="completed_goal_comment_content">Comment</label><br>
     <input type="text" name="goal_comment[content]" 
-        id="goal_comment_content"><br>
+        id="completed_goal_comment_content"><br>
+
+    <input type="submit" id="completed_goal_post" value="post">
 </form>

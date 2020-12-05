@@ -1,4 +1,4 @@
-<form action="<%= user_comments %>" method="POST">
+<form action="<%= user_comments_url(user) %>" method="POST">
     <input type="hidden"
         name="authenticity_token"
         value="<%= form_authenticity_token %>">
@@ -6,7 +6,13 @@
     <input type="hidden" name="user_comment[author_id]" 
       id="author_id" value="<%= current_user.id %>">
 
+    <input type="hidden" name="user_comment[user_id]"
+      id="user_id" value="<%= user.id %>"> 
+
     <label for="user_comment_content">Comment</label><br>
     <input type="text" name="user_comment[content]" 
-        id="user_comment_content"><br>
+        id="user_comment_content"
+        class="user_comment_content"><br>
+    
+    <input type="submit" id="user_comment_post" value="post" >
 </form>

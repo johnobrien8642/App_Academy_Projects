@@ -1,4 +1,3 @@
-
 module GoalFeaturesHelper
   
   def sign_in(user)

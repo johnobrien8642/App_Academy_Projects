@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     end
 
     def create
+      
+
       case
       when params[:user_id]
         user_comment = UserComment.new(user_comment_params)
@@ -17,13 +19,14 @@ class CommentsController < ApplicationController
           redirect_to user_url(user_comment.user_id)
         end
       when params[:goal_id]
+        user_id = params[:goal_comment][:user_id]
         goal_comment = GoalComment.new(goal_comment_params)
         if goal_comment.save
           flash[:notices] = ["Comment posted"]
-          redirect_to user_url(goal_comment.user_id)
+          redirect_to user_url(user_id)
         else
           flash[:errors] = goal_comment.errors.full_messages
-          redirect_to user_url(goal_comment.user_id)
+          redirect_to user_url(user_id)
         end
       end
     end

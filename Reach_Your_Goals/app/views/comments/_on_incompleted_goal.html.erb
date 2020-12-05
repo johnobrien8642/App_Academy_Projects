@@ -1,0 +1,17 @@
+<form action="<%= goal_comments_url(goal) %>" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+    
+    <input type="hidden" name="goal_comment[author_id]" 
+      id="author_id" value="<%= current_user.id %>">
+
+    <input type="hidden" name="goal_comment[user_id]" 
+      id="user_id" value="<%= goal.user_id %>">
+
+    <label for="incompleted_goal_comment_content">Comment</label><br>
+    <input type="text" name="goal_comment[content]" 
+        id="incompleted_goal_comment_content"><br>
+
+    <input type="submit" id="incompleted_goal_post" value="post">
+</form>

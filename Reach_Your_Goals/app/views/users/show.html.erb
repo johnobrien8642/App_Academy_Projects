@@ -2,7 +2,10 @@
 
 <a href="<%= new_user_goal_url(@user) %>">Add New Goal</a><br>
 
-<%= render 'shared/notices' %>
+<%= render 'shared/notices' %><br>
+
+<%= render 'comments/on_user', user: @user %><br>
+
 
 <table>
 <thead>
@@ -10,8 +13,10 @@
 </thead>
 <tbody>
 <% @user.comments_on_self.includes(:author).each do |comment| %>
+<tr>
 <td><%= comment.author.username %></td>
 <td><%= comment.content %></td>
+</tr>
 <% end %>
 </tbody>
 </table>
@@ -59,7 +64,7 @@
   </tr>
   <% unless goal.private && current_user.id != goal.user_id %>
   <tr>
-    <td><%= render 'comments/on_goal', goal: goal %></td>
+    <td><%= render 'comments/on_completed_goal', goal: goal %></td>
   </tr>
   <% end %>
   <% goal.comments.includes(:author).each do |comment| %>
@@ -115,7 +120,7 @@
   </tr>
   <% unless goal.private && current_user.id != goal.user_id %>
   <tr>
-    <td><%= render 'comments/on_goal', goal: goal %></td>
+    <td><%= render 'comments/on_incompleted_goal', goal: goal %></td>
   </tr>
   <% end %>
   <% goal.comments.includes(:author).each do |comment| %>

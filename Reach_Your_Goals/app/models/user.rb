@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    include Commentable
     validates :session_token, presence: true, uniqueness: true
     validates :username, presence: true, uniqueness: true
     validates :password_digest, presence: true
@@ -11,9 +12,8 @@ class User < ApplicationRecord
     has_many :goals
     has_many :comments_on_users,
       class_name: :Comment,
-      foreign_key: :author_id
-    has_many :comments,
-      as: :commentable
+      foreign_key: :author_id,
+      dependent: :destroy
 
     def self.find_by_credentials(username, password)
       user = User.find_by(username: username)

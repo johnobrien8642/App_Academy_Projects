@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     end
 
     def show
-      @user = User.includes(:comments_on_self).find(params[:id])
+      @user = User.includes(:comments).find(params[:id])
       @complete_goals = User.find(params[:id]).goals.includes(:comments).where(completed: true)
       @incomplete_goals = User.find(params[:id]).goals.includes(:comments).where(completed: false)
       render :show

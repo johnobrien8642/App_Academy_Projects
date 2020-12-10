@@ -6,28 +6,14 @@ class CommentsController < ApplicationController
     end
 
     def create
-      
-
-      case
-      when params[:user_id]
-        user_comment = UserComment.new(user_comment_params)
-        if user_comment.save
-          flash[:notices] = ["Comment posted"]
-          redirect_to user_url(user_comment.user_id)
-        else
-          flash[:errors] = user_comment.errors.full_messages
-          redirect_to user_url(user_comment.user_id)
-        end
-      when params[:goal_id]
-        user_id = params[:goal_comment][:user_id]
-        goal_comment = GoalComment.new(goal_comment_params)
-        if goal_comment.save
-          flash[:notices] = ["Comment posted"]
-          redirect_to user_url(user_id)
-        else
-          flash[:errors] = goal_comment.errors.full_messages
-          redirect_to user_url(user_id)
-        end
+      user_id = params[:user_id]
+      comment = Comment.new(comment_params)
+      if comment.save
+        flash[:notices] = ["Comment posted"]
+        redirect_to user_url(user_id)
+      else
+        flash[:errors] = comment.errors.full_messages
+        redirect_to user_url(user_id)
       end
     end
 
@@ -45,11 +31,7 @@ class CommentsController < ApplicationController
     
     private
 
-    def goal_comment_params
-      params.require(:goal_comment).permit(:goal_id, :author_id, :content)
-    end
-
-    def user_comment_params
-      params.require(:user_comment).permit(:user_id, :author_id, :content)
+    def comment_params
+      params.require(:comment).permit(:commentable_type, :commentable_id, :author_id, :content)
     end
 end

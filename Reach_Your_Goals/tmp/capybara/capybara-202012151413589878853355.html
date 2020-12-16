@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReachYourGoals</title>
+    
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-b87dfca453e1f93c40085990d8eac8b39b918ed85e39eb2f0f7498ea9c2152f4.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+  <header>
+  <a href="http://www.example.com/goals"><h1>Reach Your Goals</h1></a><br>
+    <a href="http://www.example.com/users/65">mika.hammes</a><br>
+    <form action="http://www.example.com/session" method="POST">
+    <input type="hidden"
+            name="authenticity_token"
+            value="hOkZqxSfSw0+DxpnwDGX+98NxvN0zUScKp2KxftgJXVr5BZ9pFW2QwR4YEGIP3lV9ga/gFnGy1m2w+G0trLGEQ==">
+
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="logout" id="logout" value="Log out">
+    </form><br>
+  </header>
+
+    <h1>mika.hammes's Goals</h1><br>
+
+<a href="http://www.example.com/users/65/goals/new">Add New Goal</a><br>
+
+<br>
+<br>
+
+<form action="http://www.example.com/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="8pOcASBAmL5jtwly9at/FnFtAHo4wM85SwTe06hFzsEdnpPXkIpl8FnAc1S9pZG4WGZ5CRXLQPzXWrWi5ZctpQ==">
+    
+    <input type="hidden" name="comment[commentable_id]"
+      id="commentable_id" value="65"> 
+    
+    <input type="hidden" name="comment[commentable_type]"
+      id="commentable_type" value="User">
+    
+    <input type="hidden" name="user_id"
+      id="user_id" value="65"> 
+    
+    <input type="hidden" name="comment[author_id]" 
+      id="author_id" value="65">
+
+    <label for="user_comment_content">Comment</label><br>
+    <input type="text" name="comment[content]" 
+        id="user_comment_content"
+        class="user_comment_content"><br>
+    
+    <input type="submit" id="user_comment_post" value="post" >
+</form><br>
+
+<table>
+<thead>
+<th>Comments for mika.hammes</th>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<table>
+<h1>Incomplete goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Completed</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="http://www.example.com/goals/57">Est doloribus.</a></td>
+    <td>Laboriosam deleniti est maiores sint.</td>
+    <td>No
+        <form action="http://www.example.com/goals/57/toggle_completed" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="H7I6hBIZCLkbVz+8VtqbD2KIeD6o10b0Wj6wzWH+1ZnwvzVSotP19yEgRZoe1HWhS4MBTYXcyTHGYNu8LCw2/Q==">
+        <input type="submit" value="Mark Completed">
+        </form>
+    </td>
+    <td><a href="http://www.example.com/goals/57/edit">Edit</a>/
+    <form action="http://www.example.com/goals/57" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="5SDc1tLWV/IBw1GB5CJkhUviYHCUCwbshFkULZH/uhUKLdMAYhyqvDu0K6esLIorYukZA7kAiSkYB39c3C1ZcQ==">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+  </tr>
+  <tr>
+    <td><form action="http://www.example.com/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="JZ7PpMKJqjfj/qB2CJ3ODoscCvfWP9y7/RBRU0lvDibKk8ByckNXedmJ2lBAkyCgohdzhPs0U35hTjoiBL3tQg==">
+
+    <input type="hidden" name="comment[commentable_id]"
+      id="commentable_id" value="57"> 
+    
+    <input type="hidden" name="comment[commentable_type]"
+      id="commentable_type" value="Goal">
+
+    <input type="hidden" name="comment[author_id]" 
+      id="author_id" value="65">
+
+    <input type="hidden" name="user_id" 
+      id="user_id" value="65">
+
+    <label for="incompleted_goal_comment_content">Comment</label><br>
+    <input type="text" name="comment[content]" 
+        id="incompleted_goal_comment_content"><br>
+
+    <input type="submit" id="incompleted_goal_post" value="post">
+</form></td>
+  </tr>
+</tbody>
+</table><br>
+
+<table>
+<h1>Completed goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Incomplete</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="http://www.example.com/goals/58">Consequuntur maxime.</a></td>
+    <td>Quia est modi placeat quo.</td>
+    <td>Yes
+        <form action="http://www.example.com/goals/58/toggle_completed" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="hV1VCMYUi58T/Ha7bcsCiv0kZoae4Z4y5E21xEjn3wNqUFredt520SmLDJ0lxewk1C8f9bPqEfd4E961BTU8Zw==">
+        <input type="submit" value="Mark Incompleted">
+        </form>
+    </td>
+    <td><a href="http://www.example.com/goals/58/edit">Edit</a>/
+    <form action="http://www.example.com/goals/58" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="OsomPcL2UOoITOJwpQ7/V8kcnZflNbEsNPH/AWIDN5/VxynrcjytpDI7mFbtABH54Bfk5Mg+Pumor5RwL9HU+w==">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+  </tr>
+  <tr>
+    <td><form action="http://www.example.com/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="jQ71966sgi+Sqha9J5n5fwxFUH3pMCIAXaYmGtFJzoliA/ohHmZ/YajdbJtvlxfRJU4pDsQ7rcXB+E1rnJst7Q==">
+    
+    <input type="hidden" name="comment[commentable_id]"
+      id="commentable_id" value="58"> 
+    
+    <input type="hidden" name="comment[commentable_type]"
+      id="commentable_type" value="Goal">
+    
+    <input type="hidden" name="user_id" 
+      id="user_id" value="65">
+
+    <input type="hidden" name="comment[author_id]" 
+      id="author_id" value="65">
+  
+    <label for="completed_goal_comment_content">Comment</label><br>
+    <input type="text" name="comment[content]" 
+        id="completed_goal_comment_content"><br>
+
+    <input type="submit" id="completed_goal_post" value="post">
+</form></td>
+  </tr>
+  <tr>
+    <td>del</td>
+    <td>Nam veritatis suscipit tempore ratione.</td>
+  </tr>
+</tbody>
+</table>
+  </body>
+</html>

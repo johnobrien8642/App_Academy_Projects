@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReachYourGoals</title>
+    
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-b87dfca453e1f93c40085990d8eac8b39b918ed85e39eb2f0f7498ea9c2152f4.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+  <header>
+  <a href="http://www.example.com/goals"><h1>Reach Your Goals</h1></a><br>
+    <a href="http://www.example.com/users/25">young</a><br>
+    <form action="http://www.example.com/session" method="POST">
+    <input type="hidden"
+            name="authenticity_token"
+            value="J3TjQijbYpvw8a8jIbEExb0+QAyTXanQM2qq50td86gvlZwUJ6hegRzFCSf2gQft7illO9rBbRSruwTYSSg/MA==">
+
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="logout" id="logout" value="Log out">
+    </form><br>
+  </header>
+
+    <h1>young's Goals</h1><br>
+
+<a href="http://www.example.com/users/25/goals/new">Add New Goal</a><br>
+
+  <ul>
+    <li>Comment posted</li>
+  </ul>
+<br>
+<br>
+
+<form action="http://www.example.com/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="zfgXhY2+dHCA5y2IzVjrk3YzxgmjZYy43+6dNe1f6gvFGWjTgs1IamzTi4waaOi7JSTjPur5SHxHPzMK7yomkw==">
+    
+    <input type="hidden" name="comment[commentable_id]"
+      id="commentable_id" value="25"> 
+    
+    <input type="hidden" name="comment[commentable_type]"
+      id="commentable_type" value="User">
+    
+    <input type="hidden" name="user_id"
+      id="user_id" value="25"> 
+    
+    <input type="hidden" name="comment[author_id]" 
+      id="author_id" value="25">
+
+    <label for="user_comment_content">Comment</label><br>
+    <input type="text" name="comment[content]" 
+        id="user_comment_content"
+        class="user_comment_content"><br>
+    
+    <input type="submit" id="user_comment_post" value="post" >
+</form><br>
+
+<table>
+<thead>
+<th>Comments for young</th>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<table>
+<h1>Incomplete goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Completed</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="http://www.example.com/goals/17">Quisquam et.</a></td>
+    <td>Cumque perferendis est enim sed.</td>
+    <td>No
+        <form action="http://www.example.com/goals/17/toggle_completed" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="1SUT/Kwv/21SYMfiisDY+BYXE1/Cae9lFES/7bt5RwjdxGyqo1zDd75UYeZd8NvQRQA2aIv1K6GMlRHSuQyLkA==">
+        <input type="submit" value="Mark Completed">
+        </form>
+    </td>
+    <td><a href="http://www.example.com/goals/17/edit">Edit</a>/
+    <form action="http://www.example.com/goals/17" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="DhavNoDFGHfuGCNgjO1XcMULgktrFM8lbzSyayUUny0G99Bgj7YkbQIshWRb3VRYlhynfCKIC+H35RxUJ2FTtQ==">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+  </tr>
+  <tr>
+    <td><form action="http://www.example.com/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="7Z/d/L5bwWK7r6ez3Q2CxG2hSOZIeZgManlou0Yc0W7lfqKqsSj9eFebAbcKPYHsPrZt0QHlXMjyqMaERGkd9g==">
+
+    <input type="hidden" name="comment[commentable_id]"
+      id="commentable_id" value="17"> 
+    
+    <input type="hidden" name="comment[commentable_type]"
+      id="commentable_type" value="Goal">
+
+    <input type="hidden" name="comment[author_id]" 
+      id="author_id" value="25">
+
+    <input type="hidden" name="user_id" 
+      id="user_id" value="25">
+
+    <label for="incompleted_goal_comment_content">Comment</label><br>
+    <input type="text" name="comment[content]" 
+        id="incompleted_goal_comment_content"><br>
+
+    <input type="submit" id="incompleted_goal_post" value="post">
+</form></td>
+  </tr>
+  <tr>
+    <td>young</td>
+    <td>Et tempora veniam est eos.</td>
+    <td>
+    <form class="comment_delete_button" 
+      action="http://www.example.com/comments/25" method="POST">
+    <input type="hidden"
+      name="authenticity_token"
+      value="cvo2zd0g1OZWU0UAd4L9CfkWw4jW7CdB744fJu7X7G56G0mb0lPo/Lpn4wSgsv4hqgHmv59w44V3X7EZ7KIg9g==">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete">
+    </form>
+    </td> 
+  </tr>
+</tbody>
+</table><br>
+
+<table>
+<h1>Completed goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Incomplete</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="http://www.example.com/goals/18">Qui incidunt.</a></td>
+    <td>Neque quis qui tempora non.</td>
+    <td>Yes
+        <form action="http://www.example.com/goals/18/toggle_completed" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="3Cc76YnXXnJMBoFIA4eU7nnC9SExEH8wqy8VI86Ew0LUxkS/hqRiaKAyJ0zUt5fGKtXQFniMu/Qz/rsczPEP2g==">
+        <input type="submit" value="Mark Incompleted">
+        </form>
+    </td>
+    <td><a href="http://www.example.com/goals/18/edit">Edit</a>/
+    <form action="http://www.example.com/goals/18" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="NtiMkGjNp8aNNxefFU5+6uDSQUOyvyBdNuhV7fnJSig+OfPGZ76b3GEDsZvCfn3Cs8VkdPsj5JmuOfvS+7yGsA==">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+  </tr>
+  <tr>
+    <td><form action="http://www.example.com/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="c5sWSjN3+PcK15cPMxMzJFpj8sQoNsY3MsSEG8RxmKh7emkcPATE7ebjMQvkIzAMCXTX82GqAvOqFSokxgRUMA==">
+    
+    <input type="hidden" name="comment[commentable_id]"
+      id="commentable_id" value="18"> 
+    
+    <input type="hidden" name="comment[commentable_type]"
+      id="commentable_type" value="Goal">
+    
+    <input type="hidden" name="user_id" 
+      id="user_id" value="25">
+
+    <input type="hidden" name="comment[author_id]" 
+      id="author_id" value="25">
+  
+    <label for="completed_goal_comment_content">Comment</label><br>
+    <input type="text" name="comment[content]" 
+        id="completed_goal_comment_content"><br>
+
+    <input type="submit" id="completed_goal_post" value="post">
+</form></td>
+  </tr>
+</tbody>
+</table>
+  </body>
+</html>

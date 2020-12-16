@@ -63,6 +63,10 @@ class GoalsController < ApplicationController
       redirect_to user_url(goal.user_id)
     end
 
+    def cheer
+
+    end
+
     private
 
     def goal_params

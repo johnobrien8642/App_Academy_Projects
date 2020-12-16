@@ -1,5 +1,6 @@
 class Goal < ApplicationRecord
     include Commentable
+    include Cheerable
     
     validates :user_id, :title, presence: true
 

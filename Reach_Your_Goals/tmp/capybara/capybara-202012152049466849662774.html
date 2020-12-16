@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ReachYourGoals</title>
+    
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-b87dfca453e1f93c40085990d8eac8b39b918ed85e39eb2f0f7498ea9c2152f4.js" data-turbolinks-track="reload"></script>
+  </head>
+
+  <body>
+  <header>
+  <a href="http://www.example.com/goals"><h1>Reach Your Goals</h1></a><br>
+    <a href="http://www.example.com/users/62">rayford</a><br>
+    <form action="http://www.example.com/session" method="POST">
+    <input type="hidden"
+            name="authenticity_token"
+            value="j0yq//JsoIoq+DQ8H5b/xDtGzKryG0GVRRPjFDkd8L+0qrheTLlv0mhBX72U/sYaj67TWWrcFdG+fMkmE6FbUg==">
+
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="logout" id="logout" value="Log out">
+    </form><br>
+  </header>
+
+    <h1>rayford's Goals</h1><br>
+
+<a href="http://www.example.com/users/62/goals/new">Add New Goal</a><br>
+
+<br>
+<br>
+
+<form action="http://www.example.com/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="DLLj/ipOCj7HHFMBl8XeC+KuOKOy0UkJefGCzPmb7qk3VPFflJvFZoWlOIAcrefVVkYnUCoWHU2Cnqj+0ydFRA==">
+    
+    <input type="hidden" name="comment[commentable_id]"
+      id="commentable_id" value="62"> 
+    
+    <input type="hidden" name="comment[commentable_type]"
+      id="commentable_type" value="User">
+    
+    <input type="hidden" name="user_id"
+      id="user_id" value="62"> 
+    
+    <input type="hidden" name="comment[author_id]" 
+      id="author_id" value="62">
+
+    <label for="user_comment_content">Comment</label><br>
+    <input type="text" name="comment[content]" 
+        id="user_comment_content"
+        class="user_comment_content"><br>
+    
+    <input type="submit" id="user_comment_post" value="post" >
+</form><br>
+
+0
+<form action="http://www.example.com/cheers" method="POST" id="user_cheer_form">
+<input type="hidden"
+  name="authenticity_token"
+  value="SD+UlNO6g5JunAwTsR9fyzZY+vmN1SeTBdHMqdhA3Fxz2YY1bW9MyiwlZ5I6d2YVgrDlChUSc9f+vuab8vx3sQ==">
+<input type="hidden" name="user_id" value="62"> 
+<input type="hidden" name="cheer[celebrator_id]" value="62">
+<input type="hidden" name="cheer[cheerable_type]" value="User">
+<input type="hidden" name="cheer[cheerable_id]" value="62"> 
+</form>
+<button type="submit" form="user_cheer_form" 
+    class="user_cheer_button" value="submit">Cheers!</button>
+
+<table>
+<thead>
+<th>Comments for rayford</th>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<table>
+<h1>Incomplete goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Completed</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="http://www.example.com/goals/19">Natus molestiae.</a></td>
+    <td>Odio consequuntur aut labore aperiam.</td>
+    <td>No
+        <form action="http://www.example.com/goals/19/toggle_completed" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="/b/RhtLlDzCUE4KEczcPKXi3vJPZy92G33fKPFbRNc/GWcMnbDDAaNaq6QX4Xzb3zF+jYEEMicIkGOAOfG2eIg==">
+        <input type="submit" value="Mark Completed">
+        </form>
+    </td>
+    <td><a href="http://www.example.com/goals/19/edit">Edit</a>/
+    <form action="http://www.example.com/goals/19" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="vwP79fyxCvTpRjoU2fg1DjARnjJuyPFtPmSnZdDQY2iE5elUQmTFrKv/UZVSkAzQhPmBwfYPpSnFC41X+mzIhQ==">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+  </tr>
+  <tr>
+  <td>0</td>
+  <td><form action="http://www.example.com/cheers" method="POST" id="incompleted_goal_cheer_form">
+<input type="hidden"
+  name="authenticity_token"
+  value="rjDoWXeeNJ9rWgc47ZkC1VpNLn+QIcGgxzv0+3uJ7MmV1vr4yUv7xynjbLlm8TsL7qUxjAjmleQ8VN7JUTVHJA==">
+<input type="hidden" name="user_id" value="62"> 
+<input type="hidden" name="cheer[celebrator_id]" value="62">
+<input type="hidden" name="cheer[cheerable_type]" value="Goal">
+<input type="hidden" name="cheer[cheerable_id]" value="19"> 
+</form>
+<button type="submit" form="incompleted_goal_cheer_form" 
+    class="incompleted_goal_cheer_button" value="submit">Cheers!</button></td>
+  </tr>
+  <tr>
+    <td><form action="http://www.example.com/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="J11BE15Fv4vkr2cpYRYWac0GedcQxjkvFcjbfsRwHoocu1Oy4JBw06YWDKjqfi+3ee5mJIgBbWvup/FM7sy1Zw==">
+
+    <input type="hidden" name="comment[commentable_id]"
+      id="commentable_id" value="19"> 
+    
+    <input type="hidden" name="comment[commentable_type]"
+      id="commentable_type" value="Goal">
+
+    <input type="hidden" name="comment[author_id]" 
+      id="author_id" value="62">
+
+    <input type="hidden" name="user_id" 
+      id="user_id" value="62">
+
+    <label for="incompleted_goal_comment_content">Comment</label><br>
+    <input type="text" name="comment[content]" 
+        id="incompleted_goal_comment_content"><br>
+
+    <input type="submit" id="incompleted_goal_post" value="post">
+</form></td>
+  </tr>
+</tbody>
+</table><br>
+
+<table>
+<h1>Completed goals</h1>
+<thead>
+  <th>Title</th>
+  <th>Description</th>
+    <th>Mark Incomplete</th>
+    <th>Edit/Delete</th>
+</thead>
+<tbody>
+  <tr>
+    <td><a href="http://www.example.com/goals/20">Aliquam rerum.</a></td>
+    <td>Esse veritatis vel et voluptatem.</td>
+    <td>Yes
+        <form action="http://www.example.com/goals/20/toggle_completed" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="7G3JeNPNF4GEstrZKpugLLKGgRcHcTxRo7ZB83zLfJfXi9vZbRjY2cYLsVih85nyBm6e5J+2aBVY2WvBVnfXeg==">
+        <input type="submit" value="Mark Incompleted">
+        </form>
+    </td>
+    <td><a href="http://www.example.com/goals/20/edit">Edit</a>/
+    <form action="http://www.example.com/goals/20" method="POST">
+        <input type="hidden"
+          name="authenticity_token"
+          value="l8DOy1wCvPj3lKVCG2F0znuddbJtiHo4GiOEZ7OdeLKsJtxq4tdzoLUtzsOQCU0Qz3VqQfVPLnzhTK5VmSHTXw==">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+    </form>
+    </td>
+  <tr>
+    <td><form action="http://www.example.com/comments" method="POST">
+    <input type="hidden"
+        name="authenticity_token"
+        value="qXdKlN2QRRudgGswrLSnaGYf3ZZBGZ39J04ulJfAco+SkVg1Y0WKQ985ALEn3J620vfCZdneybncIQSmvXzZYg==">
+    
+    <input type="hidden" name="comment[commentable_id]"
+      id="commentable_id" value="20"> 
+    
+    <input type="hidden" name="comment[commentable_type]"
+      id="commentable_type" value="Goal">
+    
+    <input type="hidden" name="user_id" 
+      id="user_id" value="62">
+
+    <input type="hidden" name="comment[author_id]" 
+      id="author_id" value="62">
+  
+    <label for="completed_goal_comment_content">Comment</label><br>
+    <input type="text" name="comment[content]" 
+        id="completed_goal_comment_content"><br>
+
+    <input type="submit" id="completed_goal_post" value="post">
+</form></td>
+  </tr>
+</tbody>
+</table>
+  </body>
+</html>

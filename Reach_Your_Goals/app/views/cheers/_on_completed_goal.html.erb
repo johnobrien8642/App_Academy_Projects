@@ -1,0 +1,11 @@
+<form action="<%= cheers_url %>" method="POST" id="completed_goal_cheer_form">
+<input type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+<input type="hidden" name="user_id" value="<%= goal.user_id %>"> 
+<input type="hidden" name="cheer[celebrator_id]" value="<%= current_user.id %>">
+<input type="hidden" name="cheer[cheerable_type]" value="Goal">
+<input type="hidden" name="cheer[cheerable_id]" value="<%= goal.id %>"> 
+</form>
+<button type="submit" form="completed_goal_cheer_form" 
+    class="completed_goal_cheer_button" value="submit">Cheers!</button>

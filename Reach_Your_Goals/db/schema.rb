@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_10_212646) do
+ActiveRecord::Schema.define(version: 2020_12_16_004931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cheers", force: :cascade do |t|
+    t.integer "celebrator_id", null: false
+    t.string "cheerable_type"
+    t.bigint "cheerable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cheerable_type", "cheerable_id"], name: "index_cheers_on_cheerable_type_and_cheerable_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer "author_id", null: false
@@ -61,8 +70,8 @@ ActiveRecord::Schema.define(version: 2020_12_10_212646) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_cheers", default: 5, null: false
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
-
 end

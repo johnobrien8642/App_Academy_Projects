@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
     def show
       @user = User.includes(:comments).find(params[:id])
+      @cheers = User.includes(:cheers).find(params[:id])
       @complete_goals = User.find(params[:id]).goals.includes(:comments).where(completed: true)
       @incomplete_goals = User.find(params[:id]).goals.includes(:comments).where(completed: false)
       render :show
@@ -28,6 +29,10 @@ class UsersController < ApplicationController
     def destroy
       user = User.find(params[:id])
       user.destroy
+    end
+
+    def cheer
+
     end
 
     private

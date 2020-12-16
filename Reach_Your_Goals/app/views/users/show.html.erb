@@ -7,6 +7,9 @@
 
 <%= render 'comments/on_user', user: @user %><br>
 
+<%= @user.cheers.count %>
+<%= render 'cheers/on_user', user: @user %>
+
 <table>
 <thead>
 <th>Comments for <%= @user.username %></th>
@@ -16,6 +19,20 @@
 <tr>
 <td><%= comment.author.username %></td>
 <td><%= comment.content %></td>
+<% if current_user.id == comment.author_id %>
+<td>
+<form class="comment_delete_form" id="comment_delete_form"
+  action="<%= comment_url(comment) %>" method="POST">
+<input type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+<input type="hidden" name="user_id" value="<%= @user.id %>">
+<input type="hidden" name="_method" value="DELETE">
+</form>
+<button type="submit" form="comment_delete_form" 
+  class="comment_delete_button" value="delete">delete</button>
+</td> 
+<% end %>
 </tr>
 <% end %>
 </tbody>
@@ -62,6 +79,10 @@
     <td><%= goal.description %></td>
     <% end %>
   </tr>
+  <tr>
+  <td><%= goal.cheers.count %></td>
+  <td><%= render 'cheers/on_incompleted_goal', goal: goal %></td>
+  </tr>
   <% unless goal.private && current_user.id != goal.user_id %>
   <tr>
     <td><%= render 'comments/on_incompleted_goal', goal: goal %></td>
@@ -71,6 +92,20 @@
   <tr>
     <td><%= comment.author.username %></td>
     <td><%= comment.content %></td>
+    <% if current_user.id == comment.author_id %>
+    <td>
+    <form class="comment_delete_form" id="comment_delete_form"
+      action="<%= comment_url(comment) %>" method="POST">
+    <input type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+    <input type="hidden" name="user_id" value="<%= @user.id %>">
+    <input type="hidden" name="_method" value="DELETE">
+    </form>
+    <button type="submit" form="comment_delete_form" 
+      class="comment_delete_button" value="delete">delete</button>
+    </td> 
+    <% end %>
   </tr>
   <% end %>
   <% end %>
@@ -118,6 +153,10 @@
     <td><%= goal.description %></td>
     <% end %>
   </tr>
+  <tr>
+  <td><%= goal.cheers.count %></td>
+  <td><%= render 'cheers/on_completed_goal', goal: goal %></td>
+  </tr>
   <% unless goal.private && current_user.id != goal.user_id %>
   <tr>
     <td><%= render 'comments/on_completed_goal', goal: goal %></td>
@@ -127,6 +166,20 @@
   <tr>
     <td><%= comment.author.username %></td>
     <td><%= comment.content %></td>
+    <% if current_user.id == comment.author_id %>
+    <td>
+    <form class="comment_delete_form" id="comment_delete_form" 
+      action="<%= comment_url(comment) %>" method="POST">
+    <input type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+    <input type="hidden" name="user_id" value="<%= @user.id %>">
+    <input type="hidden" name="_method" value="DELETE">
+    </form>
+    <button type="submit" form="comment_delete_form" 
+      class="comment_delete_button" value="delete">delete</button>
+    </td> 
+    <% end %>
   </tr>
   <% end %>
   <% end %>

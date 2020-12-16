@@ -1,10 +1,6 @@
 class CommentsController < ApplicationController
     before_action :require_user!
     
-    def new
-      
-    end
-
     def create
       user_id = params[:user_id]
       comment = Comment.new(comment_params)
@@ -17,16 +13,11 @@ class CommentsController < ApplicationController
       end
     end
 
-    def edit
-
-    end
-
-    def update
-
-    end
-
     def destroy
-
+      user_id = params[:user_id]
+      comment = Comment.find(params[:id])
+      comment.destroy
+      redirect_to user_url(user_id)
     end
     
     private

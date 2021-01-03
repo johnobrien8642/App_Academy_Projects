@@ -1,0 +1,37 @@
+.section-links-nav {
+    display: flex;
+    position: relative;
+    background-color: white;
+    border-bottom: 1px solid $light-gray;
+}
+
+.fix-links-nav {
+    position: fixed;
+    top: 10px;
+}
+
+
+.section-links {
+    display: flex;
+    margin: 0 auto;
+}
+
+.section-links li {
+    margin: 10px 7px;
+}
+
+.section-links li a:hover {
+    background-color: $light-gray;
+    text-decoration: none;
+}
+
+.section-links li:last-of-type a:hover {
+    background-color: white;
+    text-decoration: underline;
+}
+
+@media all and (max-width: 1000px) {
+  .section-links-nav {
+    display: none;
+  }
+}

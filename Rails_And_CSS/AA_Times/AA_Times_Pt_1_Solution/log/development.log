@@ -61,3 +61,22 @@ Completed 200 OK in 205ms (Views: 201.7ms | ActiveRecord: 0.0ms)
 
 Started GET "/assets/new_office.jpg" for ::1 at 2020-10-12 13:50:06 -0700
 Started GET "/assets/AA_Times_Logo.png" for ::1 at 2020-10-12 13:50:06 -0700
+Started GET "/" for ::1 at 2021-01-01 13:55:14 -0500
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /Users/admin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.0.7.2/lib/active_record/railtie.rb:113)
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_sections_sidebar.html.erb (0.5ms)
+  Rendered shared/_gear_dropdown.html.erb (0.4ms)
+  Rendered shared/_main_nav.html.erb (10.6ms)
+  Rendered shared/_masthead.html.erb (0.4ms)
+  Rendered shared/_search_modal.html.erb (0.4ms)
+  Rendered shared/_sections_nav.html.erb (18.4ms)
+  Rendered shared/_search_modal.html.erb (0.0ms)
+  Rendered shared/_main_content.html.erb (0.5ms)
+  Rendered static_pages/index.html.erb within layouts/application (109.4ms)
+Completed 200 OK in 2082ms (Views: 2070.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-45ee33b9976483446ca876ccecfbbf0d24124ef30336ed9cb290f636d7043f76.css?body=1" for ::1 at 2021-01-01 13:55:18 -0500
+Started GET "/assets/AA_Times_Logo.png" for ::1 at 2021-01-01 13:55:18 -0500
+Started GET "/assets/new_office.jpg" for ::1 at 2021-01-01 13:55:18 -0500

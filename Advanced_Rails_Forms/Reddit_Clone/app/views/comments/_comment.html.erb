@@ -1,0 +1,24 @@
+<% label = comment.parent_comment_id.nil? ? "Comment" : "Reply" %>
+
+<label><%= label %></label>
+<p>Votes: <%= comment.vote_score %></p>
+<%= upvote(comment) %>
+<%= downvote(comment) %>
+
+<ul>
+    <li><%= comment.author.email %></li>
+    <li><p><%= comment.content %></p></li>
+    <li><%= comment.created_at %></li>
+</ul>
+
+Add a reply:
+<%= render 'forms/child_comment_form', 
+        comment: comment, 
+        post: comment.post  
+%>
+
+<% sorted_comments = comments_by_parent[comment.id].sort_by(&:vote_score) %>
+    <% sorted_comments.reverse!.each do |c2| %>
+        <li><%= render 'comments/comment', comment: c2, 
+                comments_by_parent: comments_by_parent %></li>
+<% end %>

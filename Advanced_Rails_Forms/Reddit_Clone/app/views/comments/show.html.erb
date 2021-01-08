@@ -1,0 +1,24 @@
+<h2><%= @comment.author.email %></h2>
+
+<p><%= @comment.content %></p>
+
+<%= render 'forms/child_comment_form', 
+        child_comment: @child_comment, 
+        comment: @comment, 
+        post: @comment.post  
+%>
+
+<% @comment.child_comments.each do |child_comment| %>  
+    <ul>
+    <li>Commenter: <%= child_comment.author.email %></li>
+    <li><p><%= child_comment.content %></p></li>
+    </ul>
+
+    <%= render 'forms/child_comment_form', 
+        child_comment: @child_comment, 
+        comment: child_comment, 
+        post: child_comment.post  
+    %>
+    <p>-------------------------------------------------</p>
+<% end %>
+

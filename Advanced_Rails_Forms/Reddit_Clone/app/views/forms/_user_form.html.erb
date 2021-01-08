@@ -1,0 +1,20 @@
+<% action_url = user.persisted? ? edit_user_url(user) : users_url %>
+<% http_request_type = user.persisted? ? "PATCH" : "POST" %>
+<% action_button = user.persisted? ? "update" : "create" %>
+
+
+<form action="<%= action_url %>" method="POST"> 
+    <%= auth_token %>
+
+    <input type="hidden" method="<%= http_request_type %>"> 
+
+    <label for="user_email">Email</label>
+    <input type="text" name="user[email]" 
+        id="user_email" value="<%= user.email %>">
+
+    <label for="user_password">Password</label>
+    <input type="text" name="user[password]" 
+        id="user_email" value="<%= user.password %>">
+
+    <input type="submit" value="<%= action_button %>">
+</form>

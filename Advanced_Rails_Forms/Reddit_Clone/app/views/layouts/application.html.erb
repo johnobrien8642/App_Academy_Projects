@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RedditClone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <% if logged_in? %>
+        <a href="<%= user_url(current_user) %>"><%= current_user.email %></a>
+        <%= logout_button %>
+        <a href="<%= user_url(current_user) %>">profile</a>
+      <% else %>
+        <a href="<%= new_session_url %>">Log In</a>
+        <a href="<%= new_user_url %>">Sign Up</a>
+      <% end %>
+
+      <div>
+        <a href="<%= subs_url %>">return to index</a>
+      </div>
+    </header>
+    
+    <%= render 'shared/notices' %>
+    <%= render 'shared/errors' %>
+    
+    <%= yield %>
+  </body>
+</html>

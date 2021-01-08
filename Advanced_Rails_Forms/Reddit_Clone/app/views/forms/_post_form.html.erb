@@ -1,0 +1,47 @@
+<% action_url = post.persisted? ? post_url(post) : posts_url %>
+<% http_request_type = post.persisted? ? "PATCH" : "POST" %>
+<% action_button = post.persisted? ? "update" : "create" %>
+<% author_id = logged_in? ? current_user.id : "" %>
+
+<form action="<%= action_url %>" method="POST"> 
+    <%= auth_token %>
+
+    <input type="hidden" name="_method" 
+        value="<%= http_request_type %>">
+
+    <label for="post_title">Title</label>
+    <input type="text" name="post[title]" 
+        id="post_title" value="<%= post.title %>">
+
+    <label for="post_url">URL</label>
+    <input type="text" name="post[url]"
+        id="post_url" value="<%= post.url %>">
+
+    <label for="post_content">Content</label>
+    <textarea name="post[content]" id="post_content" 
+        cols="30" rows="10"><%= post.content %></textarea>
+
+    <h3>Subs</h3>
+    <input type="hidden" name="post[sub_ids][]" value="">
+
+    <% Sub.all.order('created_at DESC').each do |sub| %>    
+        <ul>
+        <li><%= sub.title %></li>
+        <li><input type="checkbox"
+            name="post[sub_ids][]"
+            id="sub_title"
+            value="<%= sub.id %>"
+            <%= "checked" if post.sub_ids.include?(sub.id) %>
+            <%= "checked" if sub_for_post.id == sub.id %>>
+        </li>
+        </ul>
+    <% end %>
+
+    <input type="hidden" name="post[author_id]" 
+        id="post_author_id" value="<%= author_id %>">
+    
+    <input type="submit" value="<%= action_button %>"> 
+</form>
+
+<%= delete_button(post) unless !post.persisted? %>
+

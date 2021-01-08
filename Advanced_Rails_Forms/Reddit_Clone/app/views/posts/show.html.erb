@@ -1,0 +1,35 @@
+<h2><%= @post.title %></h2> 
+
+<p><%= @post.content %></p>
+
+<a href="#"><%= @post.url %></a>
+
+<a href="<%= users_url(@post.author) %>"><%= @post.author.email %></a>
+
+<h3>Subs</h3>
+<ul>
+    <% @post.subs.each do |sub| %>
+        <li><a href="<%= sub_url(sub) %>"><%= sub.title %></a></li>
+    <% end %>
+</ul>
+
+<%= edit_button(@post) %>
+
+<h3>Make a comment</h3>
+<%= render 'forms/parent_comment_form', comment: @comment, post: @post %>
+<p>-------------------------------------------------</p>
+
+<% comments_by_parent = @post.comments_by_parent %>
+<% sorted_comments = comments_by_parent[nil].sort_by(&:vote_score) %>
+<% sorted_comments
+    .reverse!
+    .each do |c1| %>
+    
+    <% if c1.parent_comment_id.nil? %>
+        <%= render 'comments/comment', comment: c1, 
+            comments_by_parent: comments_by_parent %>    
+    <% end %>
+<% end %>
+
+<a href="<%= subs_url %>">return to index</a>
+<a href="<%= user_url(@post.author) %>">return to user</a>

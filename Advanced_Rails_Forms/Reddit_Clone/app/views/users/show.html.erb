@@ -1,0 +1,71 @@
+<h2><%= @user.email %></h2><br>
+
+<div>
+<p>Total Votes: <%= @user.karma %></p>
+<p>Total Likes For Posts: <%= @user.total_votes_on_user_posts %></p>
+<p>Total Likes For Comments: <%= @user.total_votes_on_user_comments %></p>
+</div>
+
+<% if current_user_has_mod_permissions?(@user) %>
+    <a href="<%= new_user_sub_url(@user.id) %>">Create New Sub</a>
+<% end %>
+
+<% @user.subs.all.order('created_at DESC').each do |sub| %>
+    <div>
+        <h3>Title</h3>
+        <a href="<%= sub_url(sub) %>"><%= sub.title %></a>
+        <h3>Description</h3>
+        <p><%= sub.description %></p>
+        <h3>Mod</h3>
+        <a href="<%= user_url(sub.creator_id) %>"><%= sub.moderator.email %></a>
+        <%= edit_button(sub) %>
+        <%= delete_button(sub)%>
+        <%= render 'forms/post_form', sub_for_post: sub, post: @post %>
+        <p>-------------------------------------------------</p>
+    </div>
+
+    <% sub.posts.each do |post|%>
+        <div>
+            <a href="<%= post_url(post) %>"><%= post.title %></a>
+            <a href="#"><%= post.url %></a>
+            <p><%= post.content %></p>
+            <label for="post_author">Author</label>
+            <a href="<%= user_url(post.author) %>" id="post_author">
+                <%= post.author.email %></a>
+            <%= edit_button(post) %>
+            <%= delete_button(post) %>
+            <p>-------------------------------------------------</p>
+        </div>
+    <% end %>
+<% end %>
+
+<h3>Posts for <%= @user.email %></h3>
+
+<% @user.posts.each do |post|%>
+        <div>
+            <a href="<%= post_url(post) %>"><%= post.title %></a>
+            <a href="#"><%= post.url %></a>
+            <p><%= post.content %></p>
+            <label for="post_author">Author</label>
+            <a href="<%= user_url(post.author) %>" id="post_author">
+                <%= post.author.email %></a>
+            <%= edit_button(post) %>
+            <%= delete_button(post) %>
+            <p>-------------------------------------------------</p>
+        </div>
+<% end %>
+
+<% @user.comments.each do |comment|%>
+        <div>
+            <a href="<%= post_url(comment.post) %>">Post: <%= comment.post.title %></a>
+            <p><%= comment.content %></p>
+            <label for="post_author">Author</label>
+            <a href="<%= user_url(comment.author) %>" id="comment_author">
+                <%= comment.author.email %></a>
+            <%= delete_button(comment) %>
+            <p>-------------------------------------------------</p>
+        </div>
+<% end %>
+
+
+<a href="<%= subs_url %>">return to index</a>

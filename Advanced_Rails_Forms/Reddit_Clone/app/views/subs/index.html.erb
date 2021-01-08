@@ -1,0 +1,156 @@
+<h1>Reddit Clone</h1><br>
+<h2>Sub Index</h2><br>
+
+
+<% if logged_in? %>
+    <a href="<%= new_user_sub_url(current_user.id) %>">Create New Sub</a>      
+<% else %>
+    <%= must_be_logged_in_to_post %>
+<% end %>
+
+<%= paginate @subs %>
+
+
+    <h3>Search Sub Index</h3>
+    <% Sub.all.each do |sub| %>
+        <ul>
+            <li><a href="<%= sub_url(sub) %>"><%= sub.title %></a></li>
+        </ul>
+    <% end %>
+
+
+
+<% if logged_in? %>
+
+
+
+
+<h3>Your Subscriptions</h3>
+<% @subs.each do |sub| %>
+    <% if sub.subscribers.include?(current_user) %>
+    <div>
+        <%= sub.id %>
+        <%= unsubscribe(sub) %>
+        <h3>Sub Title</h3>
+        <a href="<%= sub_url(sub) %>"><%= sub.title %></a>
+        <h3>Description</h3>
+        <p><%= sub.description %></p>
+        <h3>Mod</h3>
+        <a href="<%= user_url(sub.creator_id) %>"><%= sub.moderator.email %></a>
+        <h3>Post</h3>
+        <%= render 'forms/post_form', sub_for_post: sub, post: @post %>
+        <%= edit_button(sub) %>
+        <%= delete_button(sub) %>
+        <p>-------------------------------------------------</p>
+
+        <% sub.posts.order('vote_score DESC').each do |post|%>
+        <div>
+            <p>Votes: <%= post.vote_score %></p>
+            <%= upvote(post) %>
+            <%= downvote(post) %>
+            <p><%= post.id %></p>
+            <a href="<%= post_url(post) %>"><%= post.title %></a>
+            <a href="#"><%= post.url %></a>
+            <p><%= post.content %></p>
+            <label for="post_author">Author</label>
+            <a href="<%= user_url(post.author) %>" id="post_author">
+                <%= post.author.email %></a>
+            <%= edit_button(post) %>
+            <%= delete_button(post) %>
+            <p>-------------------------------------------------</p>
+        </div>
+        <% end %>
+    </div>
+    <% end %>
+<% end %>
+
+<h3>All Other Subs</h3>
+<% @subs.each do |sub| %>
+    <% if !sub.subscribers.include?(current_user) %>
+    <div>
+        <%= sub.id %>
+        <%= subscribe(sub) %>
+        <h3>Sub Title</h3>
+        <a href="<%= sub_url(sub) %>"><%= sub.title %></a>
+        <h3>Description</h3>
+        <p><%= sub.description %></p>
+        <h3>Mod</h3>
+        <a href="<%= user_url(sub.creator_id) %>"><%= sub.moderator.email %></a>
+        <h3>Post</h3>
+        <%= render 'forms/post_form', sub_for_post: sub, post: @post %>
+        <%= edit_button(sub) %>
+        <%= delete_button(sub) %>
+        <p>-------------------------------------------------</p>
+
+        <% sub.posts.order('vote_score DESC').each do |post|%>
+        <div>
+            <p>Votes: <%= post.vote_score %></p>
+            <%= upvote(post) %>
+            <%= downvote(post) %>
+            <p><%= post.id %></p>
+            <a href="<%= post_url(post) %>"><%= post.title %></a>
+            <a href="#"><%= post.url %></a>
+            <p><%= post.content %></p>
+            <label for="post_author">Author</label>
+            <a href="<%= user_url(post.author) %>" id="post_author">
+                <%= post.author.email %></a>
+            <%= edit_button(post) %>
+            <%= delete_button(post) %>
+            <p>-------------------------------------------------</p>
+        </div>
+        <% end %>
+    </div>
+    <% end %>
+<% end %>
+
+
+
+
+<% else %>
+
+
+
+
+
+<h3>All subs</h3>
+    <% @subs.each do |sub| %>
+    <div>
+        <%= sub.id %>
+        <%= subscribe(sub) %>
+        <%= unsubscribe(sub) %>
+        <h3>Sub Title</h3>
+        <a href="<%= sub_url(sub) %>"><%= sub.title %></a>
+        <h3>Description</h3>
+        <p><%= sub.description %></p>
+        <h3>Mod</h3>
+        <a href="<%= user_url(sub.creator_id) %>"><%= sub.moderator.email %></a>
+        <h3>Post</h3>
+        <%= render 'forms/post_form', sub_for_post: sub, post: @post %>
+        <%= edit_button(sub) %>
+        <%= delete_button(sub) %>
+        <p>-------------------------------------------------</p>
+
+        <% sub.posts.order('vote_score DESC').each do |post|%>
+        <div>
+            <p>Votes: <%= post.vote_score %></p>
+            <%= upvote(post) %>
+            <%= downvote(post) %>
+            <p><%= post.id %></p>
+            <a href="<%= post_url(post) %>"><%= post.title %></a>
+            <a href="#"><%= post.url %></a>
+            <p><%= post.content %></p>
+            <label for="post_author">Author</label>
+            <a href="<%= user_url(post.author) %>" id="post_author">
+                <%= post.author.email %></a>
+            <%= edit_button(post) %>
+            <%= delete_button(post) %>
+            <p>-------------------------------------------------</p>
+        </div>
+        <% end %>
+    </div>
+    <% end %>
+<% end %>
+
+
+
+

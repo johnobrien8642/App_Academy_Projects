@@ -1,0 +1,35 @@
+<h2><%= @sub.title %></h2> 
+<%= subscribe(@sub) %>
+<%= unsubscribe(sub) %>
+
+<p><%= @sub.description %></p>
+
+<a href="<%= @sub.creator_id %>"><%= @sub.moderator.email %></a>
+
+<%= edit_button(@sub) %>
+<%= delete_button(@sub) %>
+
+<%= render 'forms/post_form', sub_for_post: @sub, post: @post %>
+
+<p>-------------------------------------------------</p>
+
+
+<% @sub.posts.order('vote_score DESC').each do |post|%>
+<div>
+<p>Votes: <%= post.vote_score %></p>
+<%= upvote(post) %>
+<%= downvote(post) %>
+<a href="<%= post_url(post) %>"><%= post.title %></a>
+<a href="#"><%= post.url %></a>
+<p><%= post.content %></p>
+<label for="post_author">Author</label>
+<a href="<%= user_url(post.author) %>" id="post_author">
+    <%= post.author.email %></a>
+<%= edit_button(post) %>
+<%= delete_button(post) %>
+<p>-------------------------------------------------</p>
+</div>
+<% end %>
+
+
+<a href="<%= subs_url %>">return to index</a>

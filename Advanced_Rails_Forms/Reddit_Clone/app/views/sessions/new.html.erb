@@ -1,0 +1,17 @@
+<h2>Log in</h2><br>
+
+<%= render 'shared/errors' %>
+
+<form action="<%= session_url %>" method="POST"> 
+    <%= auth_token %>
+
+    <label for="user_email">Email</label><br>
+    <input type="text" name="user[email]"><br>
+
+    <label for="user_password">Password</label><br>
+    <input type="text" name="user[password]"><br>
+
+    <input type="submit" value="Log in"><br>
+</form>
+
+<a href="<%= subs_url %>">return to index</a>

@@ -1,0 +1,5 @@
+<h2>Edit Your Post</h2>
+
+<%= render 'forms/post_form', post: @post %>
+
+<a href="<%= user_url(@post.author) %>">Return to user</a>

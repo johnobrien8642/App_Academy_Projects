@@ -1,0 +1,20 @@
+<% author = logged_in? ? current_user.id : "" %>
+
+<form action="<%= comments_url %>" method="POST"> 
+    <%= auth_token %>
+    
+    <label for="comment_content">Content</label>
+    <textarea name="comment[content]" id="comment_content" 
+        cols="30" rows="10"></textarea>
+
+    <input type="hidden" name="comment[author_id]" 
+        id="comment_author_id" value="<%= author %>">
+    
+    <input type="hidden" name="comment[post_id]"
+        id="comment_post_id" value="<%= post.id %>">
+
+    <input type="hidden" name="comment[parent_comment_id]"
+        id="comment_parent_comment_id" value="<%= comment.id %>">
+    
+    <input type="submit" value="comment"> 
+</form>

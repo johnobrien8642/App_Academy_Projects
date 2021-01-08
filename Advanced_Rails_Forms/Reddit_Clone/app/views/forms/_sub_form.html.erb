@@ -1,0 +1,27 @@
+<% action_url = sub.persisted? ? sub_url(sub) : subs_url %>
+<% http_request_type = sub.persisted? ? "PATCH" : "POST" %>
+<% action_button = sub.persisted? ? "update" : "create" %>
+<% creator_id = sub.persisted? ? sub.moderator.id : current_user.id %>
+
+<form action="<%= action_url %>" method="POST"> 
+    <%= auth_token %>
+
+    <input type="hidden" name="_method" 
+        value="<%= http_request_type %>"> 
+
+    <label for="sub_title">Title</label>
+    <input type="text" name="sub[title]" 
+        id="sub_title" value="<%= sub.title %>">
+    
+    <label for="sub_description">Description</label>
+    <textarea name="sub[description]" id="sub_description" 
+        cols="30" rows="10"><%= sub.description %></textarea>
+
+    <input type="hidden" name="sub[creator_id]" 
+        id="sub_creator_id" value="<%= creator_id %>">
+
+    <input type="submit" value="<%= action_button %>"> 
+</form>
+
+
+<%= delete_button(sub) unless !sub.persisted? %>

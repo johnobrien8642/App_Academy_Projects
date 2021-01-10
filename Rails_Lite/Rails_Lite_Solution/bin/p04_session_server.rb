@@ -3,11 +3,9 @@ require_relative '../lib/controller_base'
 
 class MyController < ControllerBase
   def go
-    if req.path == "/cats"
-      render_content("hello cats!", "text/html")
-    else
-      redirect_to("/cats")
-    end
+    session["count"] ||= 0
+    session["count"] += 1
+    render :counting_show
   end
 end
 
@@ -22,4 +20,3 @@ Rack::Server.start(
   app: app,
   Port: 3000
 )
-

@@ -1,0 +1,86 @@
+/* PHASE 3: Forms */
+.form > .thumb {
+  /* position: absolute; */
+  /* left: -15%; */
+}
+
+.content-main {
+  position: relative;
+}
+
+.form {
+  float: left;
+  display: flex;
+  position: relative;
+  width: 620px;
+  /* background-color: #eee; */
+  /* left: 17%; */
+}
+
+.form-fieldset {
+  float: left;
+  background-color: #eee;
+  width: 500px;
+  height: 313px;
+  /* transform: translateX(20%); */
+  border: 1px solid #ccc;
+  padding: 19px;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.input > label {
+  display: block;
+  padding-bottom: 5px;
+  font-weight: 700;
+}
+.input {
+  margin-bottom: 20px;
+ 
+}
+
+.input > textarea {
+  height: 120px;
+}
+
+.input > input, .input > textarea {
+  display: block;
+  background: white;
+  border: 1px solid #ccc;
+  width: calc(100% - 22px);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.submit > button {
+  position: relative;
+  padding: 10px 20px;
+  background: #0c0;
+  box-shadow: 0 3px 0 0 #070;
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+}
+
+.submit > button:hover {
+  background: #0b0;
+}
+
+.button-alternative {
+  padding-left: 5px;
+}
+
+.button-alternative strong {
+  padding-left: 5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button-alternative strong:hover {
+  color: red;
+}
+
+.submit {
+  margin-top: 20px;
+  padding-bottom: 5px;
+}

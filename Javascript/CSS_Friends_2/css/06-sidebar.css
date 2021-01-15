@@ -1,0 +1,96 @@
+/* PHASE 0: Sidebar */
+
+.profile-picture {
+  position: relative;
+}
+
+.profile-picture {
+  overflow: hidden;
+}
+
+.profile-picture {
+  display: block;
+  position: relative;
+  margin-top: -120px;
+  border: 1px solid black;
+}
+
+.online {
+  display: block;
+  position: absolute;
+  color: white;
+  background: #0c0;
+  top: -10px;
+  left: -10px;
+  padding: 5px 30px;
+  text-transform: uppercase;
+  transform: rotate(-45deg) translateX(-27%);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  box-shadow: 0 1px 0 0 #070;
+}
+
+.profile-info {
+  margin: 20px 0;
+}
+
+.profile-info h2 {
+  font-weight: 700;
+  font-size: 24px;
+  /* margin: 20px 0; */
+}
+
+.profile-description {
+  margin: 20px 0;
+}
+
+/* .profile-list {
+  margin-top: 20px;
+} */
+
+.profile-nav li:first-child {
+  border-top: 1px solid #ccc;
+}
+
+.profile-nav li {
+  /* margin: 5px 0; */
+  border-bottom: 1px solid #ccc;
+  display: flex;
+
+}
+
+.profile-nav li:hover {
+  background-color: #eee;
+}
+
+.profile-nav li a {
+  display: block;
+  font-weight: bold;
+  
+  padding: 5px;
+  text-align: end;
+}
+
+.profile-friends {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  border: 1px solid transparent;
+}
+
+.profile-friends > li {
+  float: left;
+  margin: 0 0 10px 0;
+  width: 60px;
+}
+
+.profile-friends > li:nth-child(3n-1){
+  margin: 0 8px 0 8px;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

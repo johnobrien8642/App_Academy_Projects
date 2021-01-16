@@ -40,7 +40,7 @@ Student.prototype.enroll = function(course){
 Course.prototype.conflictsWith = function (course) {
   let days = Object.keys(course.schedule)
 
-  for (i = 0; i < days.length; i++) {
+  for (let i = 0; i < days.length; i++) {
     let day = days[i]
     if (this.schedule[day] === course.schedule[day]) {
       return true
@@ -50,9 +50,9 @@ Course.prototype.conflictsWith = function (course) {
 };
 
 Student.prototype.hasConflict = function (course) {
-  enrolledCourses = this.courses
+  let enrolledCourses = this.courses
 
-  for (i = 0; i < enrolledCourses.length; i++) {
+  for (let i = 0; i < enrolledCourses.length; i++) {
     let c = enrolledCourses[i]
     if (c.conflictsWith(course) === true) {
       return true

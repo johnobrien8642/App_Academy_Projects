@@ -1,62 +1,40 @@
-<!-- <html>
 
-<body>
-  <script>
-   window.setInterval(function () {
-      // call this once per second
-      console.log("Whee! I'm in a loop but still working!");
-    }, 1000);
-
-    console.log("Timer set!");
-  </script>
-
-  <h1>This heading never appears!</h1>
-</body>
-
-</html> -->
-
-<!-- <html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>A page for you!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-
 <body>
-  <input type="text" id="text-field" value="">
-  <button id="submit-button">Submit me!</button>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
 
-  <script type="application/javascript">
-    const textField = document.getElementById('text-field');
-    const button = document.getElementById('submit-button');
+<ul id="dogs">
+  <li data-dog='{ "id": 101, "name": "Sable", "genus": "Husky Huskius" }'>
+    Sable -- Husky Huskius
+  </li>
 
-    const showValue = () => {
-      let inputValue = textField.value;
-      alert(inputValue);
-    }
+  <li data-dog='{ "id": 234, "name": "Blixa", "genus": "Corgi Corgiorum" }'>
+    Blixa -- Corgi Corgiorum
+  </li>
+</ul>
 
-    button.onclick = showValue;
-  </script>
+<script>
+  // Install click handlers on the li.dog elements.
+  $("li").on("click", event => {
+    const $dogLi = $(event.currentTarget);
+
+    // pull dog attributes out of the DOM to identify the dog.
+    const dog = $dogLi.data("dog");
+    console.log(dog);
+
+    alert(dog.name + " loves you!");
+  });
+</script>
+  
 </body>
-
-</html> -->
-
-<!-- index.html -->
-<html>
-
-<head>
-  <title>A page for you!</title>
-</head>
-
-<body>
-  <div id="content"></div>
-
-  <!-- first load the jQuery library hosted by Google -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.3/jquery.js"></script>
-
-  <script>alert("This is inline code!");</script>
-
-  <!-- then load our own app.js code -->
-  <script type="application/javascript" src="./app.js"></script>
-</body>
-
 </html>
+
+
+
+

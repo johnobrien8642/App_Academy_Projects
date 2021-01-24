@@ -10,7 +10,7 @@ class View {
     this.intervalId = window.setInterval(
       this.step.bind(this),
       View.STEP_MILLIS
-    )
+    );
     
     $(window).on('keydown', this.handleKeyEvent.bind(this));
   }

@@ -1,0 +1,46 @@
+body, figure, ul, li {
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font-size: inherit;
+  list-style: none;
+}
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 30px;
+}
+
+ul:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+li {
+  float: left;
+  width: 20px;
+  height: 20px;
+}
+
+.snake-game {
+  display: inline-block;
+  border: 10px solid black;
+
+}
+
+.snake {
+  background: green;
+}
+
+.apple {
+  background: red;
+}
+
+ 

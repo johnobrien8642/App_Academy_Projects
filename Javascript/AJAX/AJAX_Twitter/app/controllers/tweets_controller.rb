@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
     @tweets = Tweet.all.includes(:user, :mentioned_users)
       
     respond_to do |format|
-      # format.html { redirect_to request.referrer }
+      format.html { redirect_to request.referrer }
       format.json { render :index }
     end 
   end

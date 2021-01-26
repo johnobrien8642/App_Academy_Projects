@@ -1,0 +1,70 @@
+.feed-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    display: inline-block;
+    font-size: 24px;
+    width: fit-content;
+  }
+}
+
+.new-tweets {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+  transform: translateX(-40px);
+  height: 320px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+    textarea {
+      height: 76px;
+      width: 300px;
+      padding: 10px;
+      font-family: inherit;
+    }
+
+    strong {
+      margin: 3px 0;
+    }
+
+    select {
+      width: 100px;
+    }
+
+    .tweet-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.infinite-tweets {
+  margin: 0 auto;
+  height: auto;
+
+  b {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 20px
+  }
+
+  ul {
+    width: 400px;
+
+    li {
+      margin: 10px 0;
+    }
+  }
+}
+
+
+
+
+

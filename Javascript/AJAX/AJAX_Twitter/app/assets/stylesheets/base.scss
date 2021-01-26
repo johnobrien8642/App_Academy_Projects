@@ -1,0 +1,59 @@
+html {
+  background-color: blanchedalmond;
+}
+
+body {
+  width: 880px;
+  margin: 0 auto;
+  font-family: 'Fredoka One', cursive;
+}
+
+form input[type="submit"] {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px 5px;
+  margin: 7px 0;
+  font-family: inherit;
+  width: fit-content;
+  top: 0;
+  transition: top 50ms;
+}
+
+form input[type="submit"]:hover {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 3px 5px;
+  top: 2px;
+  background-color: blanchedalmond;
+  box-shadow: 0px 1px 8px -2px black; 
+}
+
+.logo {
+  font-size: 34px;
+  margin-right: 7px;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  height: auto;
+  background: gainsboro;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 1px;
+  border: 1px solid blanchedalmond;
+
+  ul, form {
+    display: flex;
+    margin: 10px;
+  }
+
+  ul li {
+    top: 10px;
+    position: relative;
+    margin: 0 7px;
+  }
+}

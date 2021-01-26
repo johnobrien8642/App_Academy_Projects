@@ -1,0 +1,36 @@
+html, body, ul, li, nav, h1, form, input, a, label{
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font-size: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  list-style: none;
+}
+
+input[type='submit'] {
+  border: none;
+  background-color: white;
+  font-size: 100%;
+  cursor: pointer;
+  writing-mode: none;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+a, a:focus, a:active {
+text-decoration: none;
+color: inherit;
+}
+a:hover {
+  color: blue;
+}
+
+group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

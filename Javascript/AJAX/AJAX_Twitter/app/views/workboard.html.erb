@@ -1,0 +1,48 @@
+//views/follows/_form
+
+<% if current_user.follows?(user) %>
+  <form action="<%= user_follow_url(user) %>" method="post">
+    <input
+        type="hidden"
+        name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Unfollow">
+  </form>
+<% else %>
+  <form action="<%= user_follow_url(user) %>" method="post">
+    <input
+        type="hidden"
+        name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+    <input type="submit" value="Follow">
+  </form>
+<% end %>
+
+//views/users/search
+
+<h1>Search!</h1>
+
+<form action="/users/search" method="GET">
+  <input
+    type="text"
+    name="query"
+    value="<%= @query %>">
+
+  <input type="submit" value="Search Users!">
+</form>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <a href="<%= user_url(user) %>"><%= user.username %></a>
+      <%= render 'follows/form', user: user %>
+    </li>
+  <% end %>
+</ul>
+
+//auth token from tweets/_form
+  <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">

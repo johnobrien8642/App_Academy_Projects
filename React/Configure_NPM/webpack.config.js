@@ -1,11 +1,40 @@
-const path = require('path');
+// const path = require('path')
+
+// module.exports = {
+//   context: __dirname,
+//   entry: "./index.jsx",
+//   output: {
+//     path: path.resolve(path),
+//     filename: "bundle.js"
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.jsx?$/,
+//         exclude: /(node_modules)/,
+//         use: {
+//           loader: 'babel-loader',
+//           options: {
+//             presets: ['@babel/env', '@babel/react']
+//           }
+//         },
+//       }
+//     ]
+//   },
+//   devtool: 'source-map',
+//   resolve: {
+//     extensions: [".js", ".jsx", "*"]
+//   }
+// }
+
+const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: "./index.jsx",
+  entry: './widgets.jsx',
   output: {
-    path: path.resolve(__dirname),
-    filename: "bundle.js"
+    path: path.resolve(path),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -17,12 +46,13 @@ module.exports = {
           options: {
             presets: ['@babel/env', '@babel/react']
           }
-        },
+        }
       }
     ]
+
   },
   devtool: 'source-map',
   resolve: {
-    extensions: [".js", ".jsx", "*"]
+    extensions: ['.js', '.jsx', '*']
   }
 }

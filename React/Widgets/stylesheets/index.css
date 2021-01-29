@@ -1,0 +1,153 @@
+html, body, ul, li, nav, h1, form, input, a, label{
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font-size: inherit;
+  font-weight: normal;
+  vertical-align: baseline;
+  text-decoration: none;
+  list-style: none;
+}
+
+input[type='submit'] {
+  border: none;
+  background-color: white;
+  font-size: 100%;
+  cursor: pointer;
+  writing-mode: none;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+a, a:focus, a:active {
+text-decoration: none;
+color: inherit;
+}
+a:hover {
+  color: blue;
+}
+
+group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.root {
+  display: flex;
+  position: relative;
+}
+
+.interactive {
+  display: flex;
+  position: relative;
+}
+
+div.react-insert {
+  display: flex;
+}
+
+div {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.clock {
+  position: relative;
+  display: inline-block;
+  margin: 20px 75px 20px 20px;
+  border-radius: 25px;
+  padding: 35px 25px;
+  min-width: 300px;
+  box-shadow: 3px 1px 29px 0px black;
+  background: linear-gradient(to bottom right, darkred, 85%, darksalmon);
+}
+
+.clock h1 {
+  position: relative;
+  z-index: 99;
+  font-size: 40px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0px 0px 14px 1px black;
+  background: linear-gradient(to bottom right, darkred, 75%, darksalmon);
+}
+
+.clockface {
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30px;
+
+}
+
+.date {
+  z-index: 99;
+  padding: 5px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0px 0px 14px 1px black;
+}
+
+.time {
+  z-index: 99;
+  margin-top: 10px;
+  padding: 5px;
+  position: relative;
+  transform: translateX(25%);
+  text-align: center;
+  width: 60%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 14px 1px black;
+}
+
+.tabs-container {
+  display: inline-block;
+  position: relative;
+  margin: 20px 75px 20px 20px;
+
+}
+
+/* .tabs {
+  border: 0.5px solid black;
+} */
+
+.tab-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab-header li {
+  padding: 7px 17.5px;
+  border-top: 0.5px solid black;
+  border-right: 0.5px solid black;
+  border-left: 0.5px solid black;
+  border-bottom: 0.5px solid black;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.tab-header li:hover {
+  cursor: pointer;
+}
+
+li.active {
+  border-bottom: none;
+}
+
+.tab-content {
+  border-right: 0.5px solid black;
+  border-left: 0.5px solid black;
+  border-bottom: 0.5px solid black;
+  width: 99%;
+  height: 200px;
+}
+
+.tab-content article {
+  padding: 50px 30px;
+  text-align: center;
+}

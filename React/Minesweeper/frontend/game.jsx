@@ -41,6 +41,7 @@ export default class Game extends React.Component {
     }
     return (
       <div>
+        {modal}
         <Board board={this.state.board} updateGame={this.updateGame} />
       </div>
     )

@@ -1,15 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import Root from './components/root.jsx';
 import configureStore from './store/store.js';
-import { receiveSteps,
-        receiveStep,
-        deleteStep } from './actions/step_actions.js'
+import { stepsByTodoId } from './reducers/selectors.js';
 
-const store = configureStore()
 
 document.addEventListener('DOMContentLoaded', () => {
-  window.store = store;
-  window.deleteStep = deleteStep
-  window.receiveStep = receiveStep
-  window.receiveSteps = receiveSteps
+  const store = configureStore();
+  window.stepsByTodoId = stepsByTodoId;
+  window.store = store
+
+  ReactDOM.render(<Root store={store}/>, document.querySelector('#content'))
 })

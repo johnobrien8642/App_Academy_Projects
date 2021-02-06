@@ -24,7 +24,6 @@ class Api::PokemonController < ApplicationController
       render :show
     else
       render json: @pokemon.errors.full_messages, status: 404
-    end
   end
 
 

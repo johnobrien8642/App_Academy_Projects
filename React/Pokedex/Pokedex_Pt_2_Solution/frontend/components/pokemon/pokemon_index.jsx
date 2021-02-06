@@ -9,11 +9,11 @@ import LoadingIcon from './loading_icon';
 
 class PokemonIndex extends React.Component{
   constructor(props){
-  super(props)
+    super(props)
   }
 
   componentDidMount(){
-  this.props.requestAllPokemon()
+    this.props.requestAllPokemon()
   }
   
   render(){

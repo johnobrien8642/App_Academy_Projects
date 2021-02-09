@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Root from './components/root.jsx'
 import configureStore from './store/store'
-import { login } from './actions/session_actions'
-// import { login } from './util/session_api_util'
+import { fetchBenches, receiveBenches } from './actions/bench_actions'
+import { login } from './util/session_api_util'
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,11 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  
+
   //delete after testing!!!!
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.login = login;
+  window.fetchBenches = fetchBenches;
+  
   //delete after testing!!!
 
   const root = document.getElementById('root')

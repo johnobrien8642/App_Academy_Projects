@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+ 
+#map-container {
+  width: 500px;
+  height: 500px;
+}
+
+.image-preview {
+  height: auto;
+  width: 60%;
+}
+
+
+.image-preview {
+  height: auto;
+  width: 60%;
+}

@@ -3,3 +3,4 @@ sprockets/
 node_modules/
 bundle.js*
 bundle.js.map
+application.yml

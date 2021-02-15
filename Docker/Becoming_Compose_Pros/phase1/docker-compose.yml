@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    web:
+      build:
+        context: .
+        dockerfile: Dockerfile
+        args:
+          - FLASK_ENV=development
+      image: python:3.7.0-alpine3.8
+      ports:
+        - '5000:5000'
+    
+    redis:
+      image: redis:4.0.11-alpine

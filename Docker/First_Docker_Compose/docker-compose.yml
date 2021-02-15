@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  nginx:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: nginx:1.15-alpine
+    ports:
+      - '80:80'

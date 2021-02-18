@@ -1,7 +1,9 @@
 sprockets/
 .DS_store
 node_modules/
+/frontend/node_modules
 bundle.js*
 bundle.js.map
 application.yml
-/config/keys.js
+keys.js
+keys_dev.js

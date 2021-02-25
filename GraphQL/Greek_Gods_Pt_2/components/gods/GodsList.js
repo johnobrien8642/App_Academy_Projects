@@ -14,7 +14,6 @@ const GodsList = () => {
         <Query query={FETCH_GODS}>{({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error</p>
-
           return data.gods.map(({id, name, description}) => (
             <li key={id}>
               <Link to={`/gods/${id}`}>

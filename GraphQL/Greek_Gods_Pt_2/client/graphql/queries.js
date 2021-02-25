@@ -47,6 +47,7 @@ export default {
         abode {
           id
           name
+          coordinates
         }
         emblems {
           id

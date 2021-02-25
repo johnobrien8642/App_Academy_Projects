@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.set("useCreateIndex", true);
+// mongoose.set("useCreateIndex", true);
 const Schema = mongoose.Schema;
 
 const GodSchema = new Schema({
@@ -79,7 +79,7 @@ GodSchema.statics.addRelative = (godId, relativeId, relationship) => {
     }
 
     return Promise.all([god.save(), relative.save()]).then(
-      ([god, relative]) => god
+      ([god, relative]) => (god, relative)
     );
   });
 };
@@ -129,7 +129,7 @@ GodSchema.statics.updateAbode = (godId, abodeId) => {
     }
     return Abode.findById(abodeId).then(newAbode => {
       god.abode = newAbode;
-      newAbode.gods.push(god);
+      newAbode.gods.concat(god);
 
       return Promise.all([god.save(), newAbode.save()]).then(
         ([god, newAbode]) => god

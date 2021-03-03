@@ -42,15 +42,10 @@ const register = async data => {
   }
 }
 
-const logout = async data => {
+const logout = async token => {
   try {
-    const { _id } = data
     const token = '';
-    const user = await User.findByIdAndUpdate(
-      { _id }, 
-      { loggedIn: false, token: token },
-      { useFindAndModify: false }
-    )
+
     return { token, loggedIn: false, ...user._doc }
   } catch (err) {
     throw err;
@@ -92,11 +87,16 @@ const verifyUser = async data => {
     const decoded = jwt.verify(token, keys.secretOrKey)
     const { id } = decoded;
 
-    const loggedIn = await User.findById(id).then(user => {
-      return user ? true : false;
+    let loggedIn;
+    let name;
+    let _id;
+
+    await User.findById(id).then(user => {
+      loggedIn = user ? true : false
+      name = loggedIn ? user.name : ''
     })
 
-    return { loggedIn };
+    return { loggedIn, name, id };
   } catch (err) {
     return { loggedIn: false };
   }

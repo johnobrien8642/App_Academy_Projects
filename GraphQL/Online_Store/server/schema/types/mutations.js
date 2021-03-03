@@ -1,6 +1,7 @@
 const graphql = require('graphql');
 const { GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLID, GraphQLFloat } = graphql;
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
 const Category = mongoose.model('categories');
 const CategoryType = require('./category_type');
 const Product = mongoose.model('products');
@@ -55,29 +56,33 @@ const mutation = new GraphQLObjectType({
       type: ProductType,
       args: {
         name: { type: GraphQLString },
-        user: { type: GraphQLID },
         description: { type: GraphQLString },
         category: { type: GraphQLID },
         weight: { type: GraphQLFloat }
       },
-      resolve(parentValue, { name, user, description, category, weight }) {
-        const newProduct = new Product({ name, user, description, category, weight })
-
-        return Category.findById({ 
-            _id: category
-          }).then(category => {
-            category.products.push(newProduct)
-
-            return User.findById({
-              _id: user
-            }).then(user => {
-              user.products.push(newProduct)
-
-              return Promise.all([newProduct.save(), category.save(), user.save()]).then(
-                ([newProduct, category, user]) => (newProduct, category, user)
-              )
+      async resolve(parentValue, { name, description, category, weight }, ctx) {
+        const validUser = await AuthService.verifyUser({ token: ctx.token })
+    
+        if (validUser.loggedIn) {
+          const newProduct = new Product({ name, user: validUser._id, description, category, weight })
+          return Category.findById({ 
+              _id: category
+            }).then(category => {
+              category.products.push(newProduct)
+  
+              return User.findById({
+                _id: validUser._id
+              }).then(user => {
+                user.products.push(newProduct)
+  
+                return Promise.all([newProduct.save(), category.save(), user.save()]).then(
+                  ([newProduct, category, user]) => (newProduct, category, user)
+                )
+              })
             })
-          })
+        } else {
+          throw new Error('Sorry, you need to be logged in to create a product.')
+        }
       }
     },
     deleteProduct: {
@@ -114,10 +119,10 @@ const mutation = new GraphQLObjectType({
     logout: {
       type: UserType,
       args: {
-        _id: { type: GraphQLID }
+        token: { type: GraphQLID }
       },
       resolve(_, args) {
-        return AuthService.logout(args)
+        return AuthService.logout()
       }
     },
     login: {

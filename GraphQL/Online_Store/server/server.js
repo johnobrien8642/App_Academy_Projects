@@ -4,7 +4,8 @@ const models = require('./models/index');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const db = require('../config/keys').MONGO_URI;
-const schema = require('./schema/schema')
+const schema = require('./schema/schema');
+const cors = require('cors');
 
 const app = express();
 
@@ -19,13 +20,19 @@ mongoose
 
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(
   '/graphql',
-  graphqlHTTP({
-    schema,
-    graphiql: true
+  graphqlHTTP(req => {
+    return{
+      schema,
+      context: {
+        token: req.headers.authorization
+      },
+      graphiql: true
+    }
   })
-)
+);
 
 module.exports = app;

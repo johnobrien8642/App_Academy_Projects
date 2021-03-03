@@ -49,37 +49,33 @@ class EmblemsList extends React.Component {
           }).then((newEmblems) => this.props.updateAddEmblems(newEmblems))
         }}
       >
-        <select
-          defaultValue={firstOptionDefault}
-          onChange={this.fieldUpdate('emblemId')}  
-        >
-          <option 
-            value={firstOptionDefault} 
-            disabled
-          >
-            --Select Emblem--
-          </option>
+        
           <Query query={FETCH_EMBLEMS}>{({ loading, error, data }) => {
             if (loading) return <option>Loading...</option>
             if (error) return <option>Error</option>
+            
             let matched = false;
-            return data.emblems.map((emblem, i) => {
+            
+            <select 
+              defaultValue={this.state.emblemId} 
+              onChange={this.fieldUpdate('emblemId')}>
+            {data.emblems.map((emblem, i) => {
               this.state.emblems.forEach((emblem2, i) => {
                 if (emblem.id == emblem2.id) {
                   matched = true
                 }
+                if (!matched) {
+                  return <option key={i} value={emblem.id}>{emblem.name}</option>
+                } else {
+                  matched = false;
+                }
               })
-              if (!matched) {
-                return <option key={i} value={emblem.id}>{emblem.name}</option>
-              } else {
-                matched = false;
-              }
-            })
+            })}
+            </select>
           }}
           </Query>
-        </select>
         <button value='submit'>Submit Emblem</button>
-      </form>
+        </form>
       )}
       </Mutation>
     </div>
